@@ -156,7 +156,7 @@ public class UserController {
         Euser user = userService.getUserById(id);
         model.addAttribute("msg","회원정보를 수정하실 수 있습니다.");
         model.addAttribute("user", user);
-        return "user/updateUser";
+        return "user/updateEdit";
     }
 
     @PostMapping("/updateUserPro")

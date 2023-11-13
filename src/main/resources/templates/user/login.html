@@ -14,13 +14,13 @@
 <th:block th:replace="layout/header :: header"></th:block>
 
 <section class="login py-5 border-top-1">
-    <input type="hidden" th:name="${_csrf.headerName}" th:value="${_csrf.token}" />
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-lg-5 col-md-8 align-item-center">
                 <div class="border">
                     <h3 class="bg-gray p-4">Login Now</h3>
-                    <form action="#">
+                    <form  th:action="@{/auth}" method="post">
+                        <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
                         <fieldset class="p-4">
                             <input type="text" class="form-control mb-3" name="name" placeholder="Username" pattern="^[a-z0-9]*$" required/>
                             <input type="password" class="form-control mb-3" name="password" placeholder="Password" pattern="^\d{4,}(?:[a-z@^*]*)?$" required/>
@@ -29,8 +29,7 @@
                                 <label for="keep-me-logged-in" class="pt-3 pb-2">Keep me logged in</label>
                             </div>
                             <button type="submit" class="btn btn-primary font-weight-bold mt-3">Log in</button>
-                            <a class="mt-3 d-block text-primary" href="#!">Forget Password?</a>
-                            <a class="mt-3 d-inline-block text-primary" href="register.html">Register Now</a>
+                            <a class="mt-3 d-inline-block text-primary" th:href="@{/join}">Register Now</a>
                         </fieldset>
                     </form>
                 </div>

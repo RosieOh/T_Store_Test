@@ -17,22 +17,22 @@
     <div class="w-50 m-auto">
         <form action="${path}/userEdit" method="post">
             <label for="name" class="mt-3"> 아이디 </label>
-            <input type="text" class="form-control" id="name" name="name" value="${user.name}" readonly>
+            <input type="text" class="form-control" id="name" name="name" th:value="${name}" readonly>
 
             <label for="name" class="mt-3"> 비밀번호 </label>
             <input type="text" class="form-control" id="password" name="password">
 
             <label for="username" class="mt-3"> 이름 </label>
-            <input type="text" class="form-control" id="username" name="username" value="${user.username}" required>
+            <input type="text" class="form-control" id="username" name="username" th:value="${username}" required>
 
             <label for="email" class="mt-3"> 이메일 </label>
-            <input type="text" class="form-control" id="email" name="email" value="${user.email}" required>
+            <input type="text" class="form-control" id="email" name="email" th:value="${email}" required>
 
             <label for="address" class="mt-3"> 주소 </label>
-            <input type="text" class="form-control" id="address" name="address" value="${user.address}" required>
+            <input type="text" class="form-control" id="address" name="address" th:value="${address}" required>
 
             <label for="tel" class="mt-3"> 전화번호 </label>
-            <input type="text" class="form-control" id="tel" name="tel" value="${user.tel}" required>
+            <input type="text" class="form-control" id="tel" name="tel" th:value="${tel}" required>
 
             <input type="submit" class="btn btn-dark w-100 mt-3" value="수정하기">
         </form>
