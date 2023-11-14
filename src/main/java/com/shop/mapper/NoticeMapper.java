@@ -13,15 +13,10 @@ import java.util.List;
 @Component
 public interface NoticeMapper {
     List<Notice> getList(Page page);
-
     Notice getNotice(@Param("no") int no);
-
     int getCount(Page page);
     void visitCount(int no);
-
-    void noticeInsert(@Param("param") Notice param);
-
-    void noticeUpdate(@Param("param") Notice param);
-
+    void noticeInsert(@Param("notice") Notice notice);
+    void noticeUpdate(@Param("notice") Notice notice);
     void noticeDelete(int no);
 }

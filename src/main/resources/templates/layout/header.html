@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org"
       xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <th:block th:fragment="header">
-<header style="max-width: 1500px; min-width: 1500px; position: relative">
+<header style="max-width: 1500px; min-width: 1500px; padding-left: 500px;">
         <div class="container" style="max-width: 1500px;">
             <div class="row">
                 <div class="col-md-12">
@@ -61,7 +61,7 @@
                                     </a>
                                     <!-- Dropdown list -->
                                     <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="index.html"> 공지사항 </a></li>
+                                        <li><a class="dropdown-item" th:href="@{/notice/list.do}"> 공지사항 </a></li>
                                         <li><a class="dropdown-item" href="index.html"> 자유게시판 </a></li>
                                         <li><a class="dropdown-item" href="index.html"> 자주 묻는 질문 </a></li>
                                         <li><a class="dropdown-item" href="index.html"> 자료실 </a></li>
@@ -85,10 +85,11 @@
                             <ul class="navbar-nav ml-auto mt-10">
                                 <th:block sec:authorize="isAuthenticated()">
 <!--                                    <li class="nav-link login-button">아이디: <span th:text="${#authentication.principal}"></span></li>-->
-                                    <li class="nav-link">직급: <span th:text="${#authentication.authorities}"></span></li>
+                                    <li class="nav-link">사용자 : <span th:text="${#authentication.authorities}"></span></li>
 
                                     <li class="nav-item">
-                                        <a th:href="@{/updateForm(name=${#authentication.principal})}"  class="nav-link login-button">수정</a>
+                                        <a th:href="@{/updateForm(name=${#authentication.principal})}"  class="nav-link text-white add-button">수정</a>
+                                        &nbsp;
                                     </li>
                                     <li class="nav-item">
                                         <form th:action="@{/logout}" method="post">
@@ -116,30 +117,6 @@
                                     </ul>
                                 </th:block>
                             </ul>
-
-<!--                            <ul class="navbar-nav ml-auto mt-10">-->
-<!--                                <th:block sec:authorize="hasAuthority('ADMIN')">-->
-<!--                                    <li class="nav-link login-button"><a th:href="@{/admin/adminMain}" class="nav-link">관리자 페이지</a></li>-->
-<!--                                </th:block>-->
-<!--                            </ul>-->
-
-<!--                            <ul class="navbar-nav ml-auto mt-10">-->
-<!--                                <th:block sec:authorize="hasAuthority('EMP')">-->
-<!--                                    <li class="nav-item"><a th:href="@{/emp/empMain}" class="nav-link">직원 페이지</a></li>-->
-<!--                                </th:block>-->
-<!--                            </ul>-->
-
-<!--                            <ul class="navbar-nav ml-auto mt-10">-->
-<!--                                <th:block sec:authorize="hasAuthority('USER')">-->
-<!--                                    <li class="nav-item"><a th:href="@{/user/userMain}" class="nav-link">마이 페이지</a></li>-->
-<!--                                </th:block>-->
-<!--                            </ul>-->
-
-<!--                            <ul class="navbar-nav ml-auto mt-10">-->
-<!--                                <th:block sec:authorize="hasAuthority('TEACHER')">-->
-<!--                                    <li class="nav-item"><a th:href="@{/user/teacherMain}" class="nav-link">교사용 페이지</a></li>-->
-<!--                                </th:block>-->
-<!--                            </ul>-->
                         </div>
                     </nav>
                 </div>

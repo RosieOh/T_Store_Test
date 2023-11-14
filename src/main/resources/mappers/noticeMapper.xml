@@ -32,11 +32,11 @@
     </select>
 
     <insert id="noticeInsert" parameterType="map">
-        insert into notice values (default, #{param.title}, #{param.content}, 1, default, default)
+        insert into notice values (default, #{notice.title}, #{notice.content}, 1, default, default)
     </insert>
 
     <update id="noticeUpdate" parameterType="map">
-        update notice set title=#{param.title}, content=#{param.content} where no=#{param.no}
+        update notice set title=#{notice.title}, content=#{notice.content} where no=#{notice.no}
     </update>
 
     <delete id="noticeDelete">

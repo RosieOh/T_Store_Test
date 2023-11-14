@@ -5,6 +5,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
+import java.util.Date;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -13,6 +15,7 @@ public class Free {
     private int fno;
     private String title;
     private String content;
-    private String resdate;
-    private String visit;
+    private int author;
+    private Date regdate;
+    private int cnt;
 }

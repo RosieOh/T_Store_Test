@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>공지사항</title>
+    <title>자유게시판</title>
     <th:block th:replace="layout/head :: head"></th:block>
 </head>
 
@@ -19,7 +19,7 @@
         <div class="row">
             <div class="col-md-8 offset-md-2 text-center">
                 <!-- Title text -->
-                <h3> 공지사항 </h3>
+                <h3> 자유게시판 </h3>
             </div>
         </div>
     </div>
@@ -32,7 +32,7 @@
         <div class="container mt-1 mx-5" style="padding-top: 30px; padding-bottom: 20px;">
             <div class="row">
                 <div class="col-md-4">
-                    <form th:action="@{/notice/list.do}" method="get" class="input-group">
+                    <form th:action="@{/free/list.do}" method="get" class="input-group">
                         <div class="input-group-prepend">
                             <select class="custom-select" id="type" name="type">
                                 <option value="title">제목</option>
@@ -48,7 +48,7 @@
                 <div class="col-md-2 offset-md-6 text-right">
                     <th:block sec:authorize="hasAuthority('ADMIN')">
                         <li class="nav-link button-a">
-                            <a th:href="@{/notice/insert.do}" class="nav-link">글작성</a>
+                            <a th:href="@{/free/insert.do}" class="nav-link">글작성</a>
                         </li>
                     </th:block>
                 </div>
@@ -67,12 +67,12 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr th:each="notice, noticeStat : ${noticeList}">
-                        <th scope="row" th:text="${noticeStat.index}"></th>
-                        <td><a th:text="${notice.title}" th:href="@{/notice/detail.do(no = ${notice.no})}" style="color:#000000;"></a></td>
-                        <td th:text="${#dates.format(notice.regdate,'yyyy-MM-dd')}"></td>
-                        <td th:if="${notice.author == 1}">관리자</td>
-                        <td th:text="${notice.cnt}" class="has-text-centered"></td>
+                    <tr th:each="free, freeStat : ${freeList}">
+                        <th scope="row" th:text="${freeStat.index}"></th>
+                        <td><a th:text="${free.title}" th:href="@{/free/detail.do(fno = ${free.fno})}" style="color:#000000;"></a></td>
+                        <td th:text="${#dates.format(free.regdate,'yyyy-MM-dd')}"></td>
+                        <td th:if="${free.author == 1}">관리자</td>
+                        <td th:text="${free.cnt}" class="has-text-centered"></td>
                     </tr>
                     </tbody>
                 </table>
@@ -83,17 +83,17 @@
     <div class="oneMusic-pagination-area wow">
         <ul class="pagination justify-content-center mb-0" style="padding-bottom: 50px;">
             <li th:if="${curPage > 5}" class="page-item">
-                <a th:href="@{|/notice/list.do?page=${page.blockStartNum - 1}|}" class="page-link">
+                <a th:href="@{|/free/list.do?page=${page.blockStartNum - 1}|}" class="page-link">
                     <i class="fa-solid fa-arrow-left"></i>
                 </a>
             </li>
             <th:block th:each="i: ${#numbers.sequence(page.blockStartNum, page.blockLastNum)}">
                 <li th:class="${i == curPage} ? 'page-item active' : 'page-item'">
-                    <a th:href="@{|/notice/list.do?page=${i}|}" class="page-link" aria-label="Page ${i}" aria-current="${i == curPage}" th:text="${i}"></a>
+                    <a th:href="@{|/notice/list?page=${i}|}" class="page-link" aria-label="Page ${i}" aria-current="${i == curPage}" th:text="${i}"></a>
                 </li>
             </th:block>
             <li th:if="${page.blockLastNum < page.totalPageCount}" class="page-item">
-                <a th:href="@{|/notice/list.do?page=${page.blockLastNum + 1}|}" class="page-link">
+                <a th:href="@{|/notice/list?page=${page.blockLastNum + 1}|}" class="page-link">
                     <i class="fa-solid fa-arrow-right"></i>
                 </a>
             </li>

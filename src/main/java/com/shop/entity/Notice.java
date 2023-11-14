@@ -8,6 +8,8 @@ import lombok.ToString;
 import java.util.Date;
 
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class Notice {
     private int no;
     private String title;

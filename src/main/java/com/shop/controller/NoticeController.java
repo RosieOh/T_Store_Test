@@ -3,6 +3,7 @@ package com.shop.controller;
 import com.shop.entity.Notice;
 import com.shop.service.NoticeService;
 import com.shop.util.Page;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,13 +19,18 @@ import java.io.*;
 import java.util.List;
 import java.util.UUID;
 
+// 관리자용 강제 인증 권한 주는 것
+//import org.springframework.security.access.prepost.PreAuthorize;
+
+@Slf4j
 @Controller
+@RequestMapping("/notice/*")
 public class NoticeController {
 
     @Autowired
     private NoticeService noticeService;
 
-    @GetMapping("/notice/list")
+    @GetMapping("list.do")
     public String getList(HttpServletRequest request, Model model) {
         int curPage = request.getParameter("page") != null ? Integer.parseInt(request.getParameter("page")) : 1;
         String keyword = request.getParameter("keyword");
@@ -49,7 +55,7 @@ public class NoticeController {
         return "notice/noticeList";
     }
 
-    @GetMapping("/notice/detail")
+    @GetMapping("detail.do")
     public String getNotice(HttpServletRequest request, Model model) {
 
         int no = Integer.parseInt(request.getParameter("no"));
@@ -59,37 +65,59 @@ public class NoticeController {
 
         return "notice/noticeDetail";
     }
-
-    @GetMapping("insert")
+//    @PreAuthorize("hasAuthority('ADMIN')")
+    @GetMapping("insert.do")
     public String insertForm(HttpServletRequest httpServletRequest, Model model) throws Exception {
         String site = httpServletRequest.getParameter("site");
         model.addAttribute("site", site);
         return "/notice/noticeInsert";
     }
 
-    @PostMapping("/notice/insert")
-    public String noticeInsert(Notice param){
-        noticeService.noticeInsert(param);
-        return "redirect:/notice/list";
+    @PostMapping("insert.do")
+    public String noticeInsert(HttpServletRequest httpServletRequest, Model model) throws Exception {
+        Notice notice = new Notice();
+        notice.setTitle(httpServletRequest.getParameter("title"));
+        notice.setContent(httpServletRequest.getParameter("content"));
+        noticeService.noticeInsert(notice);
+        // 안될 때는 아래껄로 다이렉트로 가자
+        // return "redirect:/notice/list";
+
+        // 이거 관리자만 접근 가능하게
+        String site = httpServletRequest.getParameter("site");
+        if ("admin".equals(site)) {
+            return "redirect:/notice/list.do";
+        } else {
+            return "redirect:/notice/list.do";
+        }
     }
 
-    @GetMapping("/notice/update")
-    public String noticeUpdateForm(@RequestParam("no") int no, Model model){
+
+    @GetMapping("delete.do")
+    public String noticeDelete(HttpServletRequest httpServletRequest, Model model) throws Exception {
+        int no = Integer.parseInt(httpServletRequest.getParameter("no"));
+        noticeService.noticeDelete(no);
+        return "redirect:/notice/list.do";
+    }
+
+    @GetMapping("edit.do")
+    public String editForm(HttpServletRequest httpServletRequest, Model model) throws Exception {
+        int no = Integer.parseInt(httpServletRequest.getParameter("no"));
         Notice notice = noticeService.getNotice(no);
         model.addAttribute("notice", notice);
-        return "/notice/noticeUpdate";
+        return "/notice/noticeEdit";
     }
 
-    @PostMapping("/notice/update")
-    public String noticeUpdate(Notice param, Model model){
-        noticeService.noticeUpdate(param);
-        return "redirect:/notice/list";
-    }
+    @PostMapping("edit.do")
+    public String noticeUpdate(HttpServletRequest httpServletRequest, Model model) throws Exception {
+        int no = Integer.parseInt(httpServletRequest.getParameter("no"));
+        Notice notice = new Notice();
+        notice.setNo(no);
+        notice.setTitle(httpServletRequest.getParameter("title"));
+        notice.setContent(httpServletRequest.getParameter("content"));
+        model.addAttribute("notice", notice);
 
-    @GetMapping("/notice/delete")
-    public String noticeDelete(@RequestParam("no") int no, Model model){
-        noticeService.noticeDelete(no);
-        return "redirect:/notice/list";
+        noticeService.noticeUpdate(notice);
+        return "redirect:/notice/list.do";
     }
 
 

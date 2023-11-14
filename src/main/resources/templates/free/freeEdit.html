@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>공지사항</title>
+    <title>Tsherpa</title>
     <th:block th:replace="layout/head :: head"></th:block>
     <script src="https://cdn.ckeditor.com/4.20.0/standard/ckeditor.js"></script>
 </head>
@@ -54,10 +54,8 @@
                                             </tbody>
                                         </table>
                                         <div class="btn-group float-right mr-3" style="float: right; padding-bottom: 50px;">
-                                            <a th:href="@{/notice/list.do}" class="btn btn-outline-dark">목록</a>
-                                        </div>
-                                        <div class="btn-group float-right mr-3" style="float:right;">
-                                            <input type="submit" id="btn" class="btn btn-dark" style="height: 100%; " value="등록">
+                                            <a th:href="@{notice/list.do}" class="btn btn-outline-dark">목록</a>
+                                            <input type="submit" class="btn btn-dark" style="height: 100%" value="등록">
                                         </div>
                                     </div>
                                 </div>

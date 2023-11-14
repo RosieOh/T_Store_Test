@@ -25,7 +25,7 @@ public class FreeController {
     @Autowired
     private FreeService freeService;
 
-    @GetMapping("list")
+    @GetMapping("list.do")
     public String getList(HttpServletRequest httpServletRequest, Model model) throws Exception {
         String type = httpServletRequest.getParameter("type");
         String keyword = httpServletRequest.getParameter("keyword");
@@ -52,7 +52,7 @@ public class FreeController {
         return "/free/freeList";
     }
 
-    @GetMapping("detail")
+    @GetMapping("detail.do")
     public String getFreeDetail(HttpServletRequest httpServletRequest, Model model) throws Exception {
         int fno = Integer.parseInt(httpServletRequest.getParameter("fno"));
         Free free = freeService.getFree(fno);
@@ -60,7 +60,7 @@ public class FreeController {
         return "/free/freeList";
     }
 
-    @GetMapping("insert")
+    @GetMapping("insert.do")
     public String insertForm(HttpServletRequest httpServletRequest, Model model) throws Exception {
         String site = httpServletRequest.getParameter("site");
         model.addAttribute("site", site);
@@ -83,7 +83,7 @@ public class FreeController {
         }
     }
 
-    @GetMapping("delete")
+    @GetMapping("delete.do")
     public String freeDelete(HttpServletRequest httpServletRequest, Model model) throws Exception {
         int fno = Integer.parseInt(httpServletRequest.getParameter("fno"));
         freeService.freeDelete(fno);
