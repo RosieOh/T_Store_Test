@@ -29,60 +29,75 @@
 <!--보드 관련 들어갈 내용-->
 <section id="pricing" class="pricing">
     <div class="container" data-aos="fade-up">
+        <div class="container mt-1 mx-5" style="padding-top: 30px;">
+            <div class="row">
+                <div class="col-md-4">
+                    <form th:action="@{/notice/list}" method="get" class="input-group">
+                        <div class="input-group-prepend">
+                            <select class="custom-select" id="type" name="type">
+                                <option value="title">제목</option>
+                                <option value="content">내용</option>
+                            </select>
+                        </div>
+                        <input type="text" class="form-control" id="keyword" name="keyword" placeholder="검색어를 입력하세요" th:value="${keyword}">
+                        <div class="input-group-append">
+                            <button type="submit" class="btn btn-primary">검색</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-md-2 offset-md-6 text-right">
+                    <div th:if="${authorities eq '[ADMIN]'}">
+                        <a class="btn btn-link btn-md" th:href="@{/notice/insert.do(site=noticeList)}">글쓰기</a>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="col-lg-12" data-aos="fade-up" data-aos-delay="200">
-            <div class="pricing-item featured" style="padding: 0;">
-                <table class="table" style="width: 100%;">
+            <div class="pricing-item featured">
+                <table class="table" style="width:100%; margin:0 auto;">
                     <thead>
                     <tr>
-                        <th scope="col" width="80">#</th>
+                        <th scope="col" width="80">글 번호</th>
                         <th scope="col" width="600">제목</th>
-                        <th scope="col">등록일</th>
-                        <th scope="col">작성자</th>
-                        <th scope="col">조회수</th>
+                        <th scope="col" width="100">등록일</th>
+                        <th scope="col" width="100">작성자</th>
+                        <th scope="col" width="100">조회수</th>
                     </tr>
                     </thead>
                     <tbody>
-                    <!-- Notice 목록을 반복적으로 표시 -->
-                    <tr th:each="notice, noticeStat : ${notice}">
+                    <tr th:each="notice, noticeStat : ${noticeList}">
                         <th scope="row" th:text="${noticeStat.index}"></th>
-                        <td><a th:href="@{'/notice/detail?no=' + ${notice.no}}" style="color: #000000" th:text="${notice.title}"></a></td>
-                        <td th:text="${#dates.format(notice.resdate, 'yyyy-MM-dd')}"></td>
-                        <td>
-                            <!-- 관리자 여부에 따라 표시 -->
-                            <span th:if="${notice.username eq '관리자'}">관리자</span>
-                            <span th:unless="${notice.username eq '관리자'}" th:text="${notice.username}"></span>
-                        </td>
-                        <td th:text="${notice.visit}"></td>
+                        <td><a th:text="${notice.title}" th:href="@{/notice/detail(no = ${notice.no})}" style="color:#000000;"></a></td>
+                        <td th:text="${#dates.format(notice.regdate,'yyyy-MM-dd')}"></td>
+                        <td th:if="${notice.author == 1}">관리자</td>
+                        <td th:text="${notice.cnt}"></td>
                     </tr>
                     </tbody>
                 </table>
             </div>
         </div>
     </div>
-</section>
 
-
-<div class="oneMusic-pagination-area wow">
-    <ul class="pagination justify-content-center mb-0">
-        <li th:if="${curPage > 5}" class="page-item">
-            <a th:href="@{/notice/list?page=${page.blockStartNum - 1}|}" class="page-link">
-                <i class="fa-solid fa-arrow-left"></i>
-            </a>
-        </li>
-        <th:block th:each="i: ${#numbers.sequence(page.blockStartNum, page.blockLastNum)}">
-            <li th:class="${i == curPage} ? 'page-item active' : 'page-item'">
-                <a th:href="@{/notice/list?page=${i}|}" class="page-link" aria-label="Page ${i}" aria-current="${i == curPage}" th:text="${i}"></a>
+    <div class="oneMusic-pagination-area wow">
+        <ul class="pagination justify-content-center mb-0">
+            <li th:if="${curPage > 5}" class="page-item">
+                <a th:href="@{|/notice/list?page=${page.blockStartNum - 1}|}" class="page-link">
+                    <i class="fa-solid fa-arrow-left"></i>
+                </a>
             </li>
-        </th:block>
-        <li th:if="${page.blockLastNum < page.totalPageCount}" class="page-item">
-            <a th:href="@{|/notice/list?page=${page.blockLastNum + 1}|}" class="page-link">
-                <i class="fa-solid fa-arrow-right"></i>
-            </a>
-        </li>
-    </ul>
-</div>
+            <th:block th:each="i: ${#numbers.sequence(page.blockStartNum, page.blockLastNum)}">
+                <li th:class="${i == curPage} ? 'page-item active' : 'page-item'">
+                    <a th:href="@{|/notice/list?page=${i}|}" class="page-link" aria-label="Page ${i}" aria-current="${i == curPage}" th:text="${i}"></a>
+                </li>
+            </th:block>
+            <li th:if="${page.blockLastNum < page.totalPageCount}" class="page-item">
+                <a th:href="@{|/notice/list?page=${page.blockLastNum + 1}|}" class="page-link">
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </li>
+        </ul>
+    </div>
 </section>
-
 
 
 <th:block th:replace="layout/footer :: footer"></th:block>

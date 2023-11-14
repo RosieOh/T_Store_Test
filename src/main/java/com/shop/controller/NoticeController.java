@@ -19,96 +19,77 @@ import java.util.List;
 import java.util.UUID;
 
 @Controller
-@RequestMapping("/notice/")
 public class NoticeController {
 
     @Autowired
     private NoticeService noticeService;
 
-
-    @GetMapping("list.do")
-    public String getNoticeList(HttpServletRequest request, Model model) throws Exception {
-        String type = request.getParameter("type");
-        String keyword = request.getParameter("keyword");
+    @GetMapping("/notice/list")
+    public String getList(HttpServletRequest request, Model model) {
         int curPage = request.getParameter("page") != null ? Integer.parseInt(request.getParameter("page")) : 1;
+        String keyword = request.getParameter("keyword");
+        String type = request.getParameter("type");
 
         Page page = new Page();
         page.setSearchType(type);
         page.setSearchKeyword(keyword);
-        int total = noticeService.totalCount(page);
+        int total = noticeService.getCount(page);
 
         page.makeBlock(curPage, total);
         page.makeLastPageNum(total);
         page.makePostStart(curPage, total);
 
-        List<Notice> notice = noticeService.noticeList(page);
-        model.addAttribute("notice", notice);
         model.addAttribute("type", type);
+        List<Notice> noticeList = noticeService.getList(page);
+        model.addAttribute("noticeList", noticeList);
+        model.addAttribute("curPage", curPage);
         model.addAttribute("keyword", keyword);
         model.addAttribute("page", page);
-        model.addAttribute("curPage", curPage);
-        model.addAttribute("total", total);
 
-
-        return "/notice/noticeList";
+        return "notice/noticeList";
     }
 
-    @GetMapping("detail.do")
-    public String getNoticeDetail(@RequestParam("no")int no, Model model) throws Exception {
-        Notice notice = noticeService.noticeDetail(no);
+    @GetMapping("/notice/detail")
+    public String getNotice(HttpServletRequest request, Model model) {
+
+        int no = Integer.parseInt(request.getParameter("no"));
+
+        Notice notice = noticeService.getNotice(no);
         model.addAttribute("notice", notice);
 
-        return "/notice/noticeDetail";
+        return "notice/noticeDetail";
     }
 
-    @GetMapping("insert.do")
-    public String insertForm(HttpServletRequest request, Model model) throws Exception {
-        String site = request.getParameter("site");
-        model.addAttribute("site", site);
-
-        return "/notice/noticeInsert";
+    @GetMapping("/notice/insert")
+    public String noticeInsertForm(Model model){
+        return "notice/noticeInsert";
     }
 
-    @PostMapping("insert.do")
-    public String noticeInsert(HttpServletRequest request, Model model) throws Exception {
-        Notice notice = new Notice();
-        notice.setTitle(request.getParameter("title"));
-        notice.setContent(request.getParameter("content"));
-        noticeService.noticeInsert(notice);
-
-        String site = request.getParameter("site");
-        if(site.equals("admin")){
-            return "redirect:/notice/list.do";
-        } else {
-            return "redirect:/notice/list.do";
-        }
+    @PostMapping("/notice/insert")
+    public String noticeInsert(Notice param){
+        noticeService.noticeInsert(param);
+        return "redirect:/notice/list";
     }
 
-    @GetMapping("delete.do")
-    public String noticeDelete(HttpServletRequest request, Model model) throws Exception {
-        int no = Integer.parseInt(request.getParameter("no"));
+    @GetMapping("/notice/update")
+    public String noticeUpdateForm(@RequestParam("no") int no, Model model){
+        Notice notice = noticeService.getNotice(no);
+        model.addAttribute("notice", notice);
+        return "/notice/noticeUpdate";
+    }
+
+    @PostMapping("/notice/update")
+    public String noticeUpdate(Notice param, Model model){
+        noticeService.noticeUpdate(param);
+        return "redirect:/notice/list";
+    }
+
+    @GetMapping("/notice/delete")
+    public String noticeDelete(@RequestParam("no") int no, Model model){
         noticeService.noticeDelete(no);
-        return "redirect:/notice/list.do";
+        return "redirect:/notice/list";
     }
 
-    @GetMapping("edit.do")
-    public String editForm(HttpServletRequest request, Model model) throws Exception {
-        int no = Integer.parseInt(request.getParameter("no"));
-        Notice notice = noticeService.noticeDetail(no);
-        model.addAttribute("notice", notice);
-        return "/notice/noticeEdit";
-    }
-
-    @PostMapping("edit.do")
-    public String noticeEdit(HttpServletRequest request, Model model) throws Exception {
-        int no = Integer.parseInt(request.getParameter("no"));
-        Notice notice = new Notice();
-        notice.setNo(no);
-        notice.setTitle(request.getParameter("title"));
-        notice.setContent(request.getParameter("content"));
-        noticeService.noticeEdit(notice);
-        return "redirect:/notice/list.do";
-    }
 
     //ckeditor를 이용한 이미지 업로드
     @RequestMapping(value = "imageUpload.do", method = RequestMethod.POST)

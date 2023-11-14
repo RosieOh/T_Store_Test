@@ -1,23 +1,23 @@
 package com.shop.service;
 
 import com.shop.entity.Notice;
+import com.shop.mapper.NoticeMapper;
 import com.shop.util.Page;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-public interface NoticeService {
+public class NoticeService {
 
-    public List<Notice> noticeList(Page page) throws Exception;
+    @Autowired
+    private NoticeMapper noticeMapper;
 
-    public Notice noticeDetail(int no) throws Exception;
-
-    public void noticeInsert(Notice domain) throws Exception;
-
-    public void noticeDelete(int no) throws Exception;
-
-    public void noticeEdit(Notice domain) throws Exception;
-
-    public int totalCount(Page page) throws Exception;
+    public List<Notice> getList(Page page) { return noticeMapper.getList(page); }
+    public Notice getNotice(int no) { return noticeMapper.getNotice(no); }
+    public void noticeInsert(Notice param) { noticeMapper.noticeInsert(param); }
+    public void noticeUpdate(Notice param) { noticeMapper.noticeUpdate(param); }
+    public void noticeDelete(int no) { noticeMapper.noticeDelete(no); }
+    public int getCount(Page page) { return noticeMapper.getCount(page); }
 }
