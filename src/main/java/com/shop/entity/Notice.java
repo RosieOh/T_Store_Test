@@ -8,11 +8,11 @@ import lombok.ToString;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString
 public class Notice {
     private int no;
     private String title;
     private String content;
     private String resdate;
+    private int username;
     private int visit;
 }

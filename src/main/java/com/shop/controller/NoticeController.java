@@ -41,23 +41,22 @@ public class NoticeController {
         page.makeLastPageNum(total);
         page.makePostStart(curPage, total);
 
+        List<Notice> notice = noticeService.noticeList(page);
+        model.addAttribute("notice", notice);
         model.addAttribute("type", type);
         model.addAttribute("keyword", keyword);
         model.addAttribute("page", page);
         model.addAttribute("curPage", curPage);
         model.addAttribute("total", total);
 
-        List<Notice> noticeList = noticeService.noticeList(page);
-        model.addAttribute("noticeList", noticeList);
 
         return "/notice/noticeList";
     }
 
     @GetMapping("detail.do")
-    public String getNoticeDetail(HttpServletRequest request, Model model) throws Exception {
-        int no = Integer.parseInt(request.getParameter("no"));
-        Notice domain = noticeService.noticeDetail(no);
-        model.addAttribute("domain", domain);
+    public String getNoticeDetail(@RequestParam("no")int no, Model model) throws Exception {
+        Notice notice = noticeService.noticeDetail(no);
+        model.addAttribute("notice", notice);
 
         return "/notice/noticeDetail";
     }
@@ -72,10 +71,10 @@ public class NoticeController {
 
     @PostMapping("insert.do")
     public String noticeInsert(HttpServletRequest request, Model model) throws Exception {
-        Notice domain = new Notice();
-        domain.setTitle(request.getParameter("title"));
-        domain.setContent(request.getParameter("content"));
-        noticeService.noticeInsert(domain);
+        Notice notice = new Notice();
+        notice.setTitle(request.getParameter("title"));
+        notice.setContent(request.getParameter("content"));
+        noticeService.noticeInsert(notice);
 
         String site = request.getParameter("site");
         if(site.equals("admin")){
@@ -95,19 +94,19 @@ public class NoticeController {
     @GetMapping("edit.do")
     public String editForm(HttpServletRequest request, Model model) throws Exception {
         int no = Integer.parseInt(request.getParameter("no"));
-        Notice domain = noticeService.noticeDetail(no);
-        model.addAttribute("domain", domain);
+        Notice notice = noticeService.noticeDetail(no);
+        model.addAttribute("notice", notice);
         return "/notice/noticeEdit";
     }
 
     @PostMapping("edit.do")
     public String noticeEdit(HttpServletRequest request, Model model) throws Exception {
         int no = Integer.parseInt(request.getParameter("no"));
-        Notice domain = new Notice();
-        domain.setNo(no);
-        domain.setTitle(request.getParameter("title"));
-        domain.setContent(request.getParameter("content"));
-        noticeService.noticeEdit(domain);
+        Notice notice = new Notice();
+        notice.setNo(no);
+        notice.setTitle(request.getParameter("title"));
+        notice.setContent(request.getParameter("content"));
+        noticeService.noticeEdit(notice);
         return "redirect:/notice/list.do";
     }
 
