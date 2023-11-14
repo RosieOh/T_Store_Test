@@ -25,8 +25,8 @@ public class FreeController {
     @Autowired
     private FreeService freeService;
 
-    @GetMapping("list.do")
-    public String getFreeList(HttpServletRequest httpServletRequest, Model model) throws Exception {
+    @GetMapping("list")
+    public String getList(HttpServletRequest httpServletRequest, Model model) throws Exception {
         String type = httpServletRequest.getParameter("type");
         String keyword = httpServletRequest.getParameter("keyword");
         int curPage = httpServletRequest.getParameter("page") != null ? Integer.parseInt(httpServletRequest.getParameter("page")) : 1;
@@ -34,7 +34,7 @@ public class FreeController {
         Page page = new Page();
         page.setSearchType(type);
         page.setSearchKeyword(keyword);
-        int total = freeService.totalCount(page);
+        int total = freeService.getCount(page);
 
         page.makeBlock(curPage, total);
         page.makeLastPageNum(total);
@@ -46,21 +46,21 @@ public class FreeController {
         model.addAttribute("curPage", curPage);
         model.addAttribute("total", total);
 
-        List<Free> freeList = freeService.freeList(page);
+        List<Free> freeList = freeService.getList(page);
         model.addAttribute("freeList", freeList);
 
         return "/free/freeList";
     }
 
-    @GetMapping("detail.do")
+    @GetMapping("detail")
     public String getFreeDetail(HttpServletRequest httpServletRequest, Model model) throws Exception {
         int fno = Integer.parseInt(httpServletRequest.getParameter("fno"));
-        Free domain = freeService.freeDetail(fno);
-        model.addAttribute("domain", domain);
+        Free free = freeService.getFree(fno);
+        model.addAttribute("free", free);
         return "/free/freeList";
     }
 
-    @GetMapping("insert.do")
+    @GetMapping("insert")
     public String insertForm(HttpServletRequest httpServletRequest, Model model) throws Exception {
         String site = httpServletRequest.getParameter("site");
         model.addAttribute("site", site);
@@ -69,10 +69,10 @@ public class FreeController {
 
     @PostMapping("insert.do")
     public String freeInsert(HttpServletRequest httpServletRequest, Model model) throws Exception {
-        Free domain = new Free();
-        domain.setTitle(httpServletRequest.getParameter("title"));
-        domain.setContent(httpServletRequest.getParameter("content"));
-        freeService.freeInsert(domain);
+        Free free = new Free();
+        free.setTitle(httpServletRequest.getParameter("title"));
+        free.setContent(httpServletRequest.getParameter("content"));
+        freeService.freeInsert(free);
 
         // 이거 관리자만 접근가능 하게
         String site = httpServletRequest.getParameter("site");
@@ -83,7 +83,7 @@ public class FreeController {
         }
     }
 
-    @GetMapping("delete.do")
+    @GetMapping("delete")
     public String freeDelete(HttpServletRequest httpServletRequest, Model model) throws Exception {
         int fno = Integer.parseInt(httpServletRequest.getParameter("fno"));
         freeService.freeDelete(fno);
@@ -93,19 +93,19 @@ public class FreeController {
     @GetMapping("edit.do")
     public String editForm(HttpServletRequest httpServletRequest, Model model) throws Exception {
         int fno = Integer.parseInt(httpServletRequest.getParameter("fno"));
-        Free domain = freeService.freeDetail(fno);
-        model.addAttribute("domain", domain);
+        Free free = freeService.getFree(fno);
+        model.addAttribute("free", free);
         return "/free/freeEdit";
     }
 
     @PostMapping("edit.do")
     public String freeEdit(HttpServletRequest httpServletRequest, Model model) throws Exception {
         int fno = Integer.parseInt(httpServletRequest.getParameter("fno"));
-        Free domain = new Free();
-        domain.setFno(fno);
-        domain.setTitle(httpServletRequest.getParameter("title"));
-        domain.setContent(httpServletRequest.getParameter("content"));
-        freeService.freeEdit(domain);
+        Free free = new Free();
+        free.setFno(fno);
+        free.setTitle(httpServletRequest.getParameter("title"));
+        free.setContent(httpServletRequest.getParameter("content"));
+        freeService.freeUpdate(free);
         return "redirect:/free/list.do";
     }
 

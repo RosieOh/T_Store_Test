@@ -16,6 +16,7 @@ public class NoticeService {
 
     public List<Notice> getList(Page page) { return noticeMapper.getList(page); }
     public Notice getNotice(int no) { return noticeMapper.getNotice(no); }
+    public void visitCount(int no) { noticeMapper.visitCount(no);}
     public void noticeInsert(Notice param) { noticeMapper.noticeInsert(param); }
     public void noticeUpdate(Notice param) { noticeMapper.noticeUpdate(param); }
     public void noticeDelete(int no) { noticeMapper.noticeDelete(no); }

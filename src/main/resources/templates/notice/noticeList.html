@@ -29,7 +29,7 @@
 <!--보드 관련 들어갈 내용-->
 <section id="pricing" class="pricing">
     <div class="container" data-aos="fade-up">
-        <div class="container mt-1 mx-5" style="padding-top: 30px;">
+        <div class="container mt-1 mx-5" style="padding-top: 30px; padding-bottom: 20px;">
             <div class="row">
                 <div class="col-md-4">
                     <form th:action="@{/notice/list}" method="get" class="input-group">
@@ -47,7 +47,7 @@
                 </div>
                 <div class="col-md-2 offset-md-6 text-right">
                     <div th:if="${authorities eq '[ADMIN]'}">
-                        <a class="btn btn-link btn-md" th:href="@{/notice/insert.do(site=noticeList)}">글쓰기</a>
+                        <a class="btn btn-link btn-md" th:href="@{/notice/insert.do(notice=no)}">글쓰기</a>
                     </div>
                 </div>
             </div>
@@ -59,7 +59,7 @@
                     <tr>
                         <th scope="col" width="80">글 번호</th>
                         <th scope="col" width="600">제목</th>
-                        <th scope="col" width="100">등록일</th>
+                        <th scope="col" width="200">등록일</th>
                         <th scope="col" width="100">작성자</th>
                         <th scope="col" width="100">조회수</th>
                     </tr>
@@ -70,7 +70,7 @@
                         <td><a th:text="${notice.title}" th:href="@{/notice/detail(no = ${notice.no})}" style="color:#000000;"></a></td>
                         <td th:text="${#dates.format(notice.regdate,'yyyy-MM-dd')}"></td>
                         <td th:if="${notice.author == 1}">관리자</td>
-                        <td th:text="${notice.cnt}"></td>
+                        <td th:text="${notice.cnt}" class="has-text-centered"></td>
                     </tr>
                     </tbody>
                 </table>
@@ -79,7 +79,7 @@
     </div>
 
     <div class="oneMusic-pagination-area wow">
-        <ul class="pagination justify-content-center mb-0">
+        <ul class="pagination justify-content-center mb-0" style="padding-bottom: 50px;">
             <li th:if="${curPage > 5}" class="page-item">
                 <a th:href="@{|/notice/list?page=${page.blockStartNum - 1}|}" class="page-link">
                     <i class="fa-solid fa-arrow-left"></i>

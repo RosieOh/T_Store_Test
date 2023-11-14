@@ -6919,3 +6919,236 @@ org.springframework.expression.spel.SpelEvaluationException: EL1008E: Property o
 2023-11-14 13:40:40.922 INFO  [http-nio-8087-exec-1] [o.s.web.servlet.DispatcherServlet] - Completed initialization in 0 ms
 2023-11-14 13:40:40.953 INFO  [http-nio-8087-exec-1] [com.zaxxer.hikari.HikariDataSource] - HikariPool-1 - Starting...
 2023-11-14 13:40:40.998 INFO  [http-nio-8087-exec-1] [com.zaxxer.hikari.HikariDataSource] - HikariPool-1 - Start completed.
+2023-11-14 13:43:07.424 INFO  [background-preinit] [o.h.validator.internal.util.Version] - HV000001: Hibernate Validator 6.2.5.Final
+2023-11-14 13:43:07.428 INFO  [restartedMain] [com.shop.ShopApplication] - Starting ShopApplication using Java 17.0.7 on FULL8-011 with PID 15792 (C:\Users\db400tea\Desktop\1113\T_Store_Test\build\classes\java\main started by db400tea in C:\Users\db400tea\Desktop\1113\T_Store_Test)
+2023-11-14 13:43:07.428 INFO  [restartedMain] [com.shop.ShopApplication] - No active profile set, falling back to 1 default profile: "default"
+2023-11-14 13:43:07.587 INFO  [restartedMain] [o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor] - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-11-14 13:43:07.588 INFO  [restartedMain] [o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor] - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-11-14 13:43:08.278 INFO  [restartedMain] [o.s.b.w.embedded.tomcat.TomcatWebServer] - Tomcat initialized with port(s): 8087 (http)
+2023-11-14 13:43:08.282 INFO  [restartedMain] [o.apache.coyote.http11.Http11NioProtocol] - Initializing ProtocolHandler ["http-nio-8087"]
+2023-11-14 13:43:08.283 INFO  [restartedMain] [org.apache.catalina.core.StandardService] - Starting service [Tomcat]
+2023-11-14 13:43:08.283 INFO  [restartedMain] [org.apache.catalina.core.StandardEngine] - Starting Servlet engine: [Apache Tomcat/9.0.82]
+2023-11-14 13:43:08.322 INFO  [restartedMain] [o.a.c.c.C.[Tomcat].[localhost].[/]] - Initializing Spring embedded WebApplicationContext
+2023-11-14 13:43:08.323 INFO  [restartedMain] [o.s.b.w.s.c.ServletWebServerApplicationContext] - Root WebApplicationContext: initialization completed in 735 ms
+2023-11-14 13:43:08.603 INFO  [restartedMain] [o.s.b.a.w.s.WelcomePageHandlerMapping] - Adding welcome page template: index
+2023-11-14 13:43:08.706 INFO  [restartedMain] [o.s.s.web.DefaultSecurityFilterChain] - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@4fdae2b5, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@776090bd, org.springframework.security.web.context.SecurityContextPersistenceFilter@2822aa12, org.springframework.security.web.header.HeaderWriterFilter@52c0f654, org.springframework.security.web.csrf.CsrfFilter@47291ea9, org.springframework.security.web.authentication.logout.LogoutFilter@3637d516, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@54d99a3c, org.springframework.security.web.session.ConcurrentSessionFilter@654712f7, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@2851ff21, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@21b98725, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@60afbebf, org.springframework.security.web.session.SessionManagementFilter@6ac1cfc3, org.springframework.security.web.access.ExceptionTranslationFilter@7df40695, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@303327e0]
+2023-11-14 13:43:08.876 INFO  [restartedMain] [o.s.b.d.a.OptionalLiveReloadServer] - LiveReload server is running on port 35729
+2023-11-14 13:43:08.887 INFO  [restartedMain] [o.apache.coyote.http11.Http11NioProtocol] - Starting ProtocolHandler ["http-nio-8087"]
+2023-11-14 13:43:08.898 INFO  [restartedMain] [o.s.b.w.embedded.tomcat.TomcatWebServer] - Tomcat started on port(s): 8087 (http) with context path ''
+2023-11-14 13:43:08.904 INFO  [restartedMain] [com.shop.ShopApplication] - Started ShopApplication in 1.686 seconds (JVM running for 2.083)
+2023-11-14 13:43:24.556 INFO  [http-nio-8087-exec-1] [o.a.c.c.C.[Tomcat].[localhost].[/]] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-11-14 13:43:24.556 INFO  [http-nio-8087-exec-1] [o.s.web.servlet.DispatcherServlet] - Initializing Servlet 'dispatcherServlet'
+2023-11-14 13:43:24.557 INFO  [http-nio-8087-exec-1] [o.s.web.servlet.DispatcherServlet] - Completed initialization in 1 ms
+2023-11-14 13:43:28.081 INFO  [http-nio-8087-exec-8] [com.zaxxer.hikari.HikariDataSource] - HikariPool-1 - Starting...
+2023-11-14 13:43:28.172 INFO  [http-nio-8087-exec-8] [com.zaxxer.hikari.HikariDataSource] - HikariPool-1 - Start completed.
+2023-11-14 13:45:34.545 INFO  [SpringApplicationShutdownHook] [com.zaxxer.hikari.HikariDataSource] - HikariPool-1 - Shutdown initiated...
+2023-11-14 13:45:34.547 INFO  [SpringApplicationShutdownHook] [com.zaxxer.hikari.HikariDataSource] - HikariPool-1 - Shutdown completed.
+2023-11-14 13:45:37.550 INFO  [background-preinit] [o.h.validator.internal.util.Version] - HV000001: Hibernate Validator 6.2.5.Final
+2023-11-14 13:45:37.555 INFO  [restartedMain] [com.shop.ShopApplication] - Starting ShopApplication using Java 17.0.7 on FULL8-011 with PID 8828 (C:\Users\db400tea\Desktop\1113\T_Store_Test\build\classes\java\main started by db400tea in C:\Users\db400tea\Desktop\1113\T_Store_Test)
+2023-11-14 13:45:37.556 INFO  [restartedMain] [com.shop.ShopApplication] - No active profile set, falling back to 1 default profile: "default"
+2023-11-14 13:45:37.694 INFO  [restartedMain] [o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor] - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-11-14 13:45:37.694 INFO  [restartedMain] [o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor] - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-11-14 13:45:38.331 INFO  [restartedMain] [o.s.b.w.embedded.tomcat.TomcatWebServer] - Tomcat initialized with port(s): 8087 (http)
+2023-11-14 13:45:38.336 INFO  [restartedMain] [o.apache.coyote.http11.Http11NioProtocol] - Initializing ProtocolHandler ["http-nio-8087"]
+2023-11-14 13:45:38.336 INFO  [restartedMain] [org.apache.catalina.core.StandardService] - Starting service [Tomcat]
+2023-11-14 13:45:38.337 INFO  [restartedMain] [org.apache.catalina.core.StandardEngine] - Starting Servlet engine: [Apache Tomcat/9.0.82]
+2023-11-14 13:45:38.381 INFO  [restartedMain] [o.a.c.c.C.[Tomcat].[localhost].[/]] - Initializing Spring embedded WebApplicationContext
+2023-11-14 13:45:38.382 INFO  [restartedMain] [o.s.b.w.s.c.ServletWebServerApplicationContext] - Root WebApplicationContext: initialization completed in 688 ms
+2023-11-14 13:45:38.671 INFO  [restartedMain] [o.s.b.a.w.s.WelcomePageHandlerMapping] - Adding welcome page template: index
+2023-11-14 13:45:38.769 INFO  [restartedMain] [o.s.s.web.DefaultSecurityFilterChain] - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@565f74dc, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4780437d, org.springframework.security.web.context.SecurityContextPersistenceFilter@78c3d058, org.springframework.security.web.header.HeaderWriterFilter@c699507, org.springframework.security.web.csrf.CsrfFilter@45527420, org.springframework.security.web.authentication.logout.LogoutFilter@388f0977, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@123b99, org.springframework.security.web.session.ConcurrentSessionFilter@34eb99ea, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@7af11d8b, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@2fed02cd, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@b8f02dc, org.springframework.security.web.session.SessionManagementFilter@3c2d4da4, org.springframework.security.web.access.ExceptionTranslationFilter@7b4825d, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@133dc3ba]
+2023-11-14 13:45:38.934 INFO  [restartedMain] [o.s.b.d.a.OptionalLiveReloadServer] - LiveReload server is running on port 35729
+2023-11-14 13:45:38.943 INFO  [restartedMain] [o.apache.coyote.http11.Http11NioProtocol] - Starting ProtocolHandler ["http-nio-8087"]
+2023-11-14 13:45:38.952 INFO  [restartedMain] [o.s.b.w.embedded.tomcat.TomcatWebServer] - Tomcat started on port(s): 8087 (http) with context path ''
+2023-11-14 13:45:38.958 INFO  [restartedMain] [com.shop.ShopApplication] - Started ShopApplication in 1.581 seconds (JVM running for 1.962)
+2023-11-14 13:45:43.436 INFO  [http-nio-8087-exec-1] [o.a.c.c.C.[Tomcat].[localhost].[/]] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-11-14 13:45:43.436 INFO  [http-nio-8087-exec-1] [o.s.web.servlet.DispatcherServlet] - Initializing Servlet 'dispatcherServlet'
+2023-11-14 13:45:43.436 INFO  [http-nio-8087-exec-1] [o.s.web.servlet.DispatcherServlet] - Completed initialization in 0 ms
+2023-11-14 13:45:43.467 INFO  [http-nio-8087-exec-1] [com.zaxxer.hikari.HikariDataSource] - HikariPool-1 - Starting...
+2023-11-14 13:45:43.512 INFO  [http-nio-8087-exec-1] [com.zaxxer.hikari.HikariDataSource] - HikariPool-1 - Start completed.
+2023-11-14 13:46:19.769 INFO  [SpringApplicationShutdownHook] [com.zaxxer.hikari.HikariDataSource] - HikariPool-1 - Shutdown initiated...
+2023-11-14 13:46:19.771 INFO  [SpringApplicationShutdownHook] [com.zaxxer.hikari.HikariDataSource] - HikariPool-1 - Shutdown completed.
+2023-11-14 13:46:22.337 INFO  [background-preinit] [o.h.validator.internal.util.Version] - HV000001: Hibernate Validator 6.2.5.Final
+2023-11-14 13:46:22.345 INFO  [restartedMain] [com.shop.ShopApplication] - Starting ShopApplication using Java 17.0.7 on FULL8-011 with PID 4724 (C:\Users\db400tea\Desktop\1113\T_Store_Test\build\classes\java\main started by db400tea in C:\Users\db400tea\Desktop\1113\T_Store_Test)
+2023-11-14 13:46:22.345 INFO  [restartedMain] [com.shop.ShopApplication] - No active profile set, falling back to 1 default profile: "default"
+2023-11-14 13:46:22.525 INFO  [restartedMain] [o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor] - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-11-14 13:46:22.525 INFO  [restartedMain] [o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor] - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-11-14 13:46:23.167 INFO  [restartedMain] [o.s.b.w.embedded.tomcat.TomcatWebServer] - Tomcat initialized with port(s): 8087 (http)
+2023-11-14 13:46:23.172 INFO  [restartedMain] [o.apache.coyote.http11.Http11NioProtocol] - Initializing ProtocolHandler ["http-nio-8087"]
+2023-11-14 13:46:23.173 INFO  [restartedMain] [org.apache.catalina.core.StandardService] - Starting service [Tomcat]
+2023-11-14 13:46:23.173 INFO  [restartedMain] [org.apache.catalina.core.StandardEngine] - Starting Servlet engine: [Apache Tomcat/9.0.82]
+2023-11-14 13:46:23.217 INFO  [restartedMain] [o.a.c.c.C.[Tomcat].[localhost].[/]] - Initializing Spring embedded WebApplicationContext
+2023-11-14 13:46:23.217 INFO  [restartedMain] [o.s.b.w.s.c.ServletWebServerApplicationContext] - Root WebApplicationContext: initialization completed in 692 ms
+2023-11-14 13:46:23.509 INFO  [restartedMain] [o.s.b.a.w.s.WelcomePageHandlerMapping] - Adding welcome page template: index
+2023-11-14 13:46:23.615 INFO  [restartedMain] [o.s.s.web.DefaultSecurityFilterChain] - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@13f12252, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@1f9c67c8, org.springframework.security.web.context.SecurityContextPersistenceFilter@51a69c0f, org.springframework.security.web.header.HeaderWriterFilter@6fc741d1, org.springframework.security.web.csrf.CsrfFilter@42a22b1, org.springframework.security.web.authentication.logout.LogoutFilter@94ddced, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@3157a6d2, org.springframework.security.web.session.ConcurrentSessionFilter@52d0a5d1, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@72e61664, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@a8b26fc, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@680514b7, org.springframework.security.web.session.SessionManagementFilter@100f3263, org.springframework.security.web.access.ExceptionTranslationFilter@34eb99ea, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@4780437d]
+2023-11-14 13:46:23.780 INFO  [restartedMain] [o.s.b.d.a.OptionalLiveReloadServer] - LiveReload server is running on port 35729
+2023-11-14 13:46:23.790 INFO  [restartedMain] [o.apache.coyote.http11.Http11NioProtocol] - Starting ProtocolHandler ["http-nio-8087"]
+2023-11-14 13:46:23.800 INFO  [restartedMain] [o.s.b.w.embedded.tomcat.TomcatWebServer] - Tomcat started on port(s): 8087 (http) with context path ''
+2023-11-14 13:46:23.806 INFO  [restartedMain] [com.shop.ShopApplication] - Started ShopApplication in 1.677 seconds (JVM running for 2.117)
+2023-11-14 13:46:28.659 INFO  [http-nio-8087-exec-1] [o.a.c.c.C.[Tomcat].[localhost].[/]] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-11-14 13:46:28.659 INFO  [http-nio-8087-exec-1] [o.s.web.servlet.DispatcherServlet] - Initializing Servlet 'dispatcherServlet'
+2023-11-14 13:46:28.660 INFO  [http-nio-8087-exec-1] [o.s.web.servlet.DispatcherServlet] - Completed initialization in 1 ms
+2023-11-14 13:46:28.689 INFO  [http-nio-8087-exec-1] [com.zaxxer.hikari.HikariDataSource] - HikariPool-1 - Starting...
+2023-11-14 13:46:28.735 INFO  [http-nio-8087-exec-1] [com.zaxxer.hikari.HikariDataSource] - HikariPool-1 - Start completed.
+2023-11-14 13:46:42.085 INFO  [SpringApplicationShutdownHook] [com.zaxxer.hikari.HikariDataSource] - HikariPool-1 - Shutdown initiated...
+2023-11-14 13:46:42.088 INFO  [SpringApplicationShutdownHook] [com.zaxxer.hikari.HikariDataSource] - HikariPool-1 - Shutdown completed.
+2023-11-14 13:46:44.399 INFO  [background-preinit] [o.h.validator.internal.util.Version] - HV000001: Hibernate Validator 6.2.5.Final
+2023-11-14 13:46:44.403 INFO  [restartedMain] [com.shop.ShopApplication] - Starting ShopApplication using Java 17.0.7 on FULL8-011 with PID 14868 (C:\Users\db400tea\Desktop\1113\T_Store_Test\build\classes\java\main started by db400tea in C:\Users\db400tea\Desktop\1113\T_Store_Test)
+2023-11-14 13:46:44.404 INFO  [restartedMain] [com.shop.ShopApplication] - No active profile set, falling back to 1 default profile: "default"
+2023-11-14 13:46:44.549 INFO  [restartedMain] [o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor] - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-11-14 13:46:44.549 INFO  [restartedMain] [o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor] - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-11-14 13:46:45.180 INFO  [restartedMain] [o.s.b.w.embedded.tomcat.TomcatWebServer] - Tomcat initialized with port(s): 8087 (http)
+2023-11-14 13:46:45.185 INFO  [restartedMain] [o.apache.coyote.http11.Http11NioProtocol] - Initializing ProtocolHandler ["http-nio-8087"]
+2023-11-14 13:46:45.186 INFO  [restartedMain] [org.apache.catalina.core.StandardService] - Starting service [Tomcat]
+2023-11-14 13:46:45.186 INFO  [restartedMain] [org.apache.catalina.core.StandardEngine] - Starting Servlet engine: [Apache Tomcat/9.0.82]
+2023-11-14 13:46:45.227 INFO  [restartedMain] [o.a.c.c.C.[Tomcat].[localhost].[/]] - Initializing Spring embedded WebApplicationContext
+2023-11-14 13:46:45.227 INFO  [restartedMain] [o.s.b.w.s.c.ServletWebServerApplicationContext] - Root WebApplicationContext: initialization completed in 678 ms
+2023-11-14 13:46:45.520 INFO  [restartedMain] [o.s.b.a.w.s.WelcomePageHandlerMapping] - Adding welcome page template: index
+2023-11-14 13:46:45.615 INFO  [restartedMain] [o.s.s.web.DefaultSecurityFilterChain] - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@1a7ca459, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4918bf5e, org.springframework.security.web.context.SecurityContextPersistenceFilter@68ce99a6, org.springframework.security.web.header.HeaderWriterFilter@54bc3dec, org.springframework.security.web.csrf.CsrfFilter@5c3d7d45, org.springframework.security.web.authentication.logout.LogoutFilter@32cc425, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@338c1767, org.springframework.security.web.session.ConcurrentSessionFilter@61eda50b, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@13709534, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4a45009c, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@58551b79, org.springframework.security.web.session.SessionManagementFilter@41492b25, org.springframework.security.web.access.ExceptionTranslationFilter@3ac804ca, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@4d94b2e0]
+2023-11-14 13:46:45.783 INFO  [restartedMain] [o.s.b.d.a.OptionalLiveReloadServer] - LiveReload server is running on port 35729
+2023-11-14 13:46:45.793 INFO  [restartedMain] [o.apache.coyote.http11.Http11NioProtocol] - Starting ProtocolHandler ["http-nio-8087"]
+2023-11-14 13:46:45.803 INFO  [restartedMain] [o.s.b.w.embedded.tomcat.TomcatWebServer] - Tomcat started on port(s): 8087 (http) with context path ''
+2023-11-14 13:46:45.809 INFO  [restartedMain] [com.shop.ShopApplication] - Started ShopApplication in 1.58 seconds (JVM running for 1.956)
+2023-11-14 13:46:48.985 INFO  [http-nio-8087-exec-1] [o.a.c.c.C.[Tomcat].[localhost].[/]] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-11-14 13:46:48.986 INFO  [http-nio-8087-exec-1] [o.s.web.servlet.DispatcherServlet] - Initializing Servlet 'dispatcherServlet'
+2023-11-14 13:46:48.986 INFO  [http-nio-8087-exec-1] [o.s.web.servlet.DispatcherServlet] - Completed initialization in 0 ms
+2023-11-14 13:46:49.020 INFO  [http-nio-8087-exec-1] [com.zaxxer.hikari.HikariDataSource] - HikariPool-1 - Starting...
+2023-11-14 13:46:49.069 INFO  [http-nio-8087-exec-1] [com.zaxxer.hikari.HikariDataSource] - HikariPool-1 - Start completed.
+2023-11-14 13:47:07.832 INFO  [SpringApplicationShutdownHook] [com.zaxxer.hikari.HikariDataSource] - HikariPool-1 - Shutdown initiated...
+2023-11-14 13:47:07.835 INFO  [SpringApplicationShutdownHook] [com.zaxxer.hikari.HikariDataSource] - HikariPool-1 - Shutdown completed.
+2023-11-14 13:47:10.050 INFO  [background-preinit] [o.h.validator.internal.util.Version] - HV000001: Hibernate Validator 6.2.5.Final
+2023-11-14 13:47:10.054 INFO  [restartedMain] [com.shop.ShopApplication] - Starting ShopApplication using Java 17.0.7 on FULL8-011 with PID 16544 (C:\Users\db400tea\Desktop\1113\T_Store_Test\build\classes\java\main started by db400tea in C:\Users\db400tea\Desktop\1113\T_Store_Test)
+2023-11-14 13:47:10.055 INFO  [restartedMain] [com.shop.ShopApplication] - No active profile set, falling back to 1 default profile: "default"
+2023-11-14 13:47:10.197 INFO  [restartedMain] [o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor] - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-11-14 13:47:10.197 INFO  [restartedMain] [o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor] - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-11-14 13:47:10.838 INFO  [restartedMain] [o.s.b.w.embedded.tomcat.TomcatWebServer] - Tomcat initialized with port(s): 8087 (http)
+2023-11-14 13:47:10.844 INFO  [restartedMain] [o.apache.coyote.http11.Http11NioProtocol] - Initializing ProtocolHandler ["http-nio-8087"]
+2023-11-14 13:47:10.845 INFO  [restartedMain] [org.apache.catalina.core.StandardService] - Starting service [Tomcat]
+2023-11-14 13:47:10.845 INFO  [restartedMain] [org.apache.catalina.core.StandardEngine] - Starting Servlet engine: [Apache Tomcat/9.0.82]
+2023-11-14 13:47:10.895 INFO  [restartedMain] [o.a.c.c.C.[Tomcat].[localhost].[/]] - Initializing Spring embedded WebApplicationContext
+2023-11-14 13:47:10.896 INFO  [restartedMain] [o.s.b.w.s.c.ServletWebServerApplicationContext] - Root WebApplicationContext: initialization completed in 699 ms
+2023-11-14 13:47:11.196 INFO  [restartedMain] [o.s.b.a.w.s.WelcomePageHandlerMapping] - Adding welcome page template: index
+2023-11-14 13:47:11.301 INFO  [restartedMain] [o.s.s.web.DefaultSecurityFilterChain] - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@6884c284, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5518c7ed, org.springframework.security.web.context.SecurityContextPersistenceFilter@6b56e376, org.springframework.security.web.header.HeaderWriterFilter@655292c4, org.springframework.security.web.csrf.CsrfFilter@67781100, org.springframework.security.web.authentication.logout.LogoutFilter@16c0d787, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@64eb3940, org.springframework.security.web.session.ConcurrentSessionFilter@58747244, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4920f0bc, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4d3a3fc2, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5bd694d7, org.springframework.security.web.session.SessionManagementFilter@466bb0c9, org.springframework.security.web.access.ExceptionTranslationFilter@4a94cb30, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@584f5d2e]
+2023-11-14 13:47:11.470 INFO  [restartedMain] [o.s.b.d.a.OptionalLiveReloadServer] - LiveReload server is running on port 35729
+2023-11-14 13:47:11.480 INFO  [restartedMain] [o.apache.coyote.http11.Http11NioProtocol] - Starting ProtocolHandler ["http-nio-8087"]
+2023-11-14 13:47:11.490 INFO  [restartedMain] [o.s.b.w.embedded.tomcat.TomcatWebServer] - Tomcat started on port(s): 8087 (http) with context path ''
+2023-11-14 13:47:11.496 INFO  [restartedMain] [com.shop.ShopApplication] - Started ShopApplication in 1.619 seconds (JVM running for 2.011)
+2023-11-14 13:47:16.100 INFO  [http-nio-8087-exec-1] [o.a.c.c.C.[Tomcat].[localhost].[/]] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-11-14 13:47:16.100 INFO  [http-nio-8087-exec-1] [o.s.web.servlet.DispatcherServlet] - Initializing Servlet 'dispatcherServlet'
+2023-11-14 13:47:16.101 INFO  [http-nio-8087-exec-1] [o.s.web.servlet.DispatcherServlet] - Completed initialization in 1 ms
+2023-11-14 13:47:16.131 INFO  [http-nio-8087-exec-1] [com.zaxxer.hikari.HikariDataSource] - HikariPool-1 - Starting...
+2023-11-14 13:47:16.176 INFO  [http-nio-8087-exec-1] [com.zaxxer.hikari.HikariDataSource] - HikariPool-1 - Start completed.
+2023-11-14 13:47:35.223 INFO  [SpringApplicationShutdownHook] [com.zaxxer.hikari.HikariDataSource] - HikariPool-1 - Shutdown initiated...
+2023-11-14 13:47:35.225 INFO  [SpringApplicationShutdownHook] [com.zaxxer.hikari.HikariDataSource] - HikariPool-1 - Shutdown completed.
+2023-11-14 13:47:37.452 INFO  [background-preinit] [o.h.validator.internal.util.Version] - HV000001: Hibernate Validator 6.2.5.Final
+2023-11-14 13:47:37.455 INFO  [restartedMain] [com.shop.ShopApplication] - Starting ShopApplication using Java 17.0.7 on FULL8-011 with PID 13148 (C:\Users\db400tea\Desktop\1113\T_Store_Test\build\classes\java\main started by db400tea in C:\Users\db400tea\Desktop\1113\T_Store_Test)
+2023-11-14 13:47:37.456 INFO  [restartedMain] [com.shop.ShopApplication] - No active profile set, falling back to 1 default profile: "default"
+2023-11-14 13:47:37.591 INFO  [restartedMain] [o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor] - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-11-14 13:47:37.591 INFO  [restartedMain] [o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor] - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-11-14 13:47:38.226 INFO  [restartedMain] [o.s.b.w.embedded.tomcat.TomcatWebServer] - Tomcat initialized with port(s): 8087 (http)
+2023-11-14 13:47:38.230 INFO  [restartedMain] [o.apache.coyote.http11.Http11NioProtocol] - Initializing ProtocolHandler ["http-nio-8087"]
+2023-11-14 13:47:38.231 INFO  [restartedMain] [org.apache.catalina.core.StandardService] - Starting service [Tomcat]
+2023-11-14 13:47:38.231 INFO  [restartedMain] [org.apache.catalina.core.StandardEngine] - Starting Servlet engine: [Apache Tomcat/9.0.82]
+2023-11-14 13:47:38.273 INFO  [restartedMain] [o.a.c.c.C.[Tomcat].[localhost].[/]] - Initializing Spring embedded WebApplicationContext
+2023-11-14 13:47:38.273 INFO  [restartedMain] [o.s.b.w.s.c.ServletWebServerApplicationContext] - Root WebApplicationContext: initialization completed in 681 ms
+2023-11-14 13:47:38.562 INFO  [restartedMain] [o.s.b.a.w.s.WelcomePageHandlerMapping] - Adding welcome page template: index
+2023-11-14 13:47:38.660 INFO  [restartedMain] [o.s.s.web.DefaultSecurityFilterChain] - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@565f74dc, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4780437d, org.springframework.security.web.context.SecurityContextPersistenceFilter@78c3d058, org.springframework.security.web.header.HeaderWriterFilter@c699507, org.springframework.security.web.csrf.CsrfFilter@45527420, org.springframework.security.web.authentication.logout.LogoutFilter@388f0977, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@123b99, org.springframework.security.web.session.ConcurrentSessionFilter@34eb99ea, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@7af11d8b, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@2fed02cd, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@b8f02dc, org.springframework.security.web.session.SessionManagementFilter@3c2d4da4, org.springframework.security.web.access.ExceptionTranslationFilter@7b4825d, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@133dc3ba]
+2023-11-14 13:47:38.824 INFO  [restartedMain] [o.s.b.d.a.OptionalLiveReloadServer] - LiveReload server is running on port 35729
+2023-11-14 13:47:38.834 INFO  [restartedMain] [o.apache.coyote.http11.Http11NioProtocol] - Starting ProtocolHandler ["http-nio-8087"]
+2023-11-14 13:47:38.843 INFO  [restartedMain] [o.s.b.w.embedded.tomcat.TomcatWebServer] - Tomcat started on port(s): 8087 (http) with context path ''
+2023-11-14 13:47:38.850 INFO  [restartedMain] [com.shop.ShopApplication] - Started ShopApplication in 1.577 seconds (JVM running for 1.956)
+2023-11-14 13:47:42.038 INFO  [http-nio-8087-exec-1] [o.a.c.c.C.[Tomcat].[localhost].[/]] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-11-14 13:47:42.038 INFO  [http-nio-8087-exec-1] [o.s.web.servlet.DispatcherServlet] - Initializing Servlet 'dispatcherServlet'
+2023-11-14 13:47:42.038 INFO  [http-nio-8087-exec-1] [o.s.web.servlet.DispatcherServlet] - Completed initialization in 0 ms
+2023-11-14 13:47:42.068 INFO  [http-nio-8087-exec-1] [com.zaxxer.hikari.HikariDataSource] - HikariPool-1 - Starting...
+2023-11-14 13:47:42.113 INFO  [http-nio-8087-exec-1] [com.zaxxer.hikari.HikariDataSource] - HikariPool-1 - Start completed.
+2023-11-14 13:50:40.497 INFO  [SpringApplicationShutdownHook] [com.zaxxer.hikari.HikariDataSource] - HikariPool-1 - Shutdown initiated...
+2023-11-14 13:50:40.500 INFO  [SpringApplicationShutdownHook] [com.zaxxer.hikari.HikariDataSource] - HikariPool-1 - Shutdown completed.
+2023-11-14 13:50:44.076 INFO  [background-preinit] [o.h.validator.internal.util.Version] - HV000001: Hibernate Validator 6.2.5.Final
+2023-11-14 13:50:44.079 INFO  [restartedMain] [com.shop.ShopApplication] - Starting ShopApplication using Java 17.0.7 on FULL8-011 with PID 15628 (C:\Users\db400tea\Desktop\1113\T_Store_Test\build\classes\java\main started by db400tea in C:\Users\db400tea\Desktop\1113\T_Store_Test)
+2023-11-14 13:50:44.080 INFO  [restartedMain] [com.shop.ShopApplication] - No active profile set, falling back to 1 default profile: "default"
+2023-11-14 13:50:44.219 INFO  [restartedMain] [o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor] - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-11-14 13:50:44.220 INFO  [restartedMain] [o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor] - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-11-14 13:50:44.857 INFO  [restartedMain] [o.s.b.w.embedded.tomcat.TomcatWebServer] - Tomcat initialized with port(s): 8087 (http)
+2023-11-14 13:50:44.862 INFO  [restartedMain] [o.apache.coyote.http11.Http11NioProtocol] - Initializing ProtocolHandler ["http-nio-8087"]
+2023-11-14 13:50:44.863 INFO  [restartedMain] [org.apache.catalina.core.StandardService] - Starting service [Tomcat]
+2023-11-14 13:50:44.863 INFO  [restartedMain] [org.apache.catalina.core.StandardEngine] - Starting Servlet engine: [Apache Tomcat/9.0.82]
+2023-11-14 13:50:44.905 INFO  [restartedMain] [o.a.c.c.C.[Tomcat].[localhost].[/]] - Initializing Spring embedded WebApplicationContext
+2023-11-14 13:50:44.905 INFO  [restartedMain] [o.s.b.w.s.c.ServletWebServerApplicationContext] - Root WebApplicationContext: initialization completed in 685 ms
+2023-11-14 13:50:45.200 INFO  [restartedMain] [o.s.b.a.w.s.WelcomePageHandlerMapping] - Adding welcome page template: index
+2023-11-14 13:50:45.312 INFO  [restartedMain] [o.s.s.web.DefaultSecurityFilterChain] - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@600b5c9c, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@b85636b, org.springframework.security.web.context.SecurityContextPersistenceFilter@211a5055, org.springframework.security.web.header.HeaderWriterFilter@f066586, org.springframework.security.web.csrf.CsrfFilter@753b0011, org.springframework.security.web.authentication.logout.LogoutFilter@51e809a4, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@49d44630, org.springframework.security.web.session.ConcurrentSessionFilter@1a9444a9, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@28051d5d, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@5c6053aa, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@8d9d0b2, org.springframework.security.web.session.SessionManagementFilter@77196219, org.springframework.security.web.access.ExceptionTranslationFilter@7c3f9785, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@53ea9af]
+2023-11-14 13:50:45.486 INFO  [restartedMain] [o.s.b.d.a.OptionalLiveReloadServer] - LiveReload server is running on port 35729
+2023-11-14 13:50:45.498 INFO  [restartedMain] [o.apache.coyote.http11.Http11NioProtocol] - Starting ProtocolHandler ["http-nio-8087"]
+2023-11-14 13:50:45.511 INFO  [restartedMain] [o.s.b.w.embedded.tomcat.TomcatWebServer] - Tomcat started on port(s): 8087 (http) with context path ''
+2023-11-14 13:50:45.518 INFO  [restartedMain] [com.shop.ShopApplication] - Started ShopApplication in 1.613 seconds (JVM running for 2.011)
+2023-11-14 13:51:33.562 INFO  [background-preinit] [o.h.validator.internal.util.Version] - HV000001: Hibernate Validator 6.2.5.Final
+2023-11-14 13:51:33.567 INFO  [restartedMain] [com.shop.ShopApplication] - Starting ShopApplication using Java 17.0.7 on FULL8-011 with PID 14988 (C:\Users\db400tea\Desktop\1113\T_Store_Test\build\classes\java\main started by db400tea in C:\Users\db400tea\Desktop\1113\T_Store_Test)
+2023-11-14 13:51:33.567 INFO  [restartedMain] [com.shop.ShopApplication] - No active profile set, falling back to 1 default profile: "default"
+2023-11-14 13:51:33.716 INFO  [restartedMain] [o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor] - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-11-14 13:51:33.716 INFO  [restartedMain] [o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor] - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-11-14 13:51:34.343 INFO  [restartedMain] [o.s.b.w.embedded.tomcat.TomcatWebServer] - Tomcat initialized with port(s): 8087 (http)
+2023-11-14 13:51:34.348 INFO  [restartedMain] [o.apache.coyote.http11.Http11NioProtocol] - Initializing ProtocolHandler ["http-nio-8087"]
+2023-11-14 13:51:34.349 INFO  [restartedMain] [org.apache.catalina.core.StandardService] - Starting service [Tomcat]
+2023-11-14 13:51:34.349 INFO  [restartedMain] [org.apache.catalina.core.StandardEngine] - Starting Servlet engine: [Apache Tomcat/9.0.82]
+2023-11-14 13:51:34.391 INFO  [restartedMain] [o.a.c.c.C.[Tomcat].[localhost].[/]] - Initializing Spring embedded WebApplicationContext
+2023-11-14 13:51:34.391 INFO  [restartedMain] [o.s.b.w.s.c.ServletWebServerApplicationContext] - Root WebApplicationContext: initialization completed in 674 ms
+2023-11-14 13:51:34.674 INFO  [restartedMain] [o.s.b.a.w.s.WelcomePageHandlerMapping] - Adding welcome page template: index
+2023-11-14 13:51:34.775 INFO  [restartedMain] [o.s.s.web.DefaultSecurityFilterChain] - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@565f74dc, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4780437d, org.springframework.security.web.context.SecurityContextPersistenceFilter@78c3d058, org.springframework.security.web.header.HeaderWriterFilter@c699507, org.springframework.security.web.csrf.CsrfFilter@45527420, org.springframework.security.web.authentication.logout.LogoutFilter@388f0977, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@123b99, org.springframework.security.web.session.ConcurrentSessionFilter@34eb99ea, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@7af11d8b, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@2fed02cd, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@b8f02dc, org.springframework.security.web.session.SessionManagementFilter@3c2d4da4, org.springframework.security.web.access.ExceptionTranslationFilter@7b4825d, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@133dc3ba]
+2023-11-14 13:51:34.938 INFO  [restartedMain] [o.s.b.d.a.OptionalLiveReloadServer] - LiveReload server is running on port 35729
+2023-11-14 13:51:34.948 INFO  [restartedMain] [o.apache.coyote.http11.Http11NioProtocol] - Starting ProtocolHandler ["http-nio-8087"]
+2023-11-14 13:51:34.958 INFO  [restartedMain] [o.s.b.w.embedded.tomcat.TomcatWebServer] - Tomcat started on port(s): 8087 (http) with context path ''
+2023-11-14 13:51:34.965 INFO  [restartedMain] [com.shop.ShopApplication] - Started ShopApplication in 1.577 seconds (JVM running for 1.996)
+2023-11-14 13:51:38.981 INFO  [http-nio-8087-exec-1] [o.a.c.c.C.[Tomcat].[localhost].[/]] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-11-14 13:51:38.981 INFO  [http-nio-8087-exec-1] [o.s.web.servlet.DispatcherServlet] - Initializing Servlet 'dispatcherServlet'
+2023-11-14 13:51:38.982 INFO  [http-nio-8087-exec-1] [o.s.web.servlet.DispatcherServlet] - Completed initialization in 0 ms
+2023-11-14 13:51:39.013 INFO  [http-nio-8087-exec-1] [com.zaxxer.hikari.HikariDataSource] - HikariPool-1 - Starting...
+2023-11-14 13:51:39.058 INFO  [http-nio-8087-exec-1] [com.zaxxer.hikari.HikariDataSource] - HikariPool-1 - Start completed.
+2023-11-14 13:53:05.694 INFO  [SpringApplicationShutdownHook] [com.zaxxer.hikari.HikariDataSource] - HikariPool-1 - Shutdown initiated...
+2023-11-14 13:53:05.697 INFO  [SpringApplicationShutdownHook] [com.zaxxer.hikari.HikariDataSource] - HikariPool-1 - Shutdown completed.
+2023-11-14 13:53:07.729 INFO  [background-preinit] [o.h.validator.internal.util.Version] - HV000001: Hibernate Validator 6.2.5.Final
+2023-11-14 13:53:07.732 INFO  [restartedMain] [com.shop.ShopApplication] - Starting ShopApplication using Java 17.0.7 on FULL8-011 with PID 5256 (C:\Users\db400tea\Desktop\1113\T_Store_Test\build\classes\java\main started by db400tea in C:\Users\db400tea\Desktop\1113\T_Store_Test)
+2023-11-14 13:53:07.733 INFO  [restartedMain] [com.shop.ShopApplication] - No active profile set, falling back to 1 default profile: "default"
+2023-11-14 13:53:07.881 INFO  [restartedMain] [o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor] - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-11-14 13:53:07.881 INFO  [restartedMain] [o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor] - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-11-14 13:53:08.506 INFO  [restartedMain] [o.s.b.w.embedded.tomcat.TomcatWebServer] - Tomcat initialized with port(s): 8087 (http)
+2023-11-14 13:53:08.511 INFO  [restartedMain] [o.apache.coyote.http11.Http11NioProtocol] - Initializing ProtocolHandler ["http-nio-8087"]
+2023-11-14 13:53:08.512 INFO  [restartedMain] [org.apache.catalina.core.StandardService] - Starting service [Tomcat]
+2023-11-14 13:53:08.512 INFO  [restartedMain] [org.apache.catalina.core.StandardEngine] - Starting Servlet engine: [Apache Tomcat/9.0.82]
+2023-11-14 13:53:08.552 INFO  [restartedMain] [o.a.c.c.C.[Tomcat].[localhost].[/]] - Initializing Spring embedded WebApplicationContext
+2023-11-14 13:53:08.552 INFO  [restartedMain] [o.s.b.w.s.c.ServletWebServerApplicationContext] - Root WebApplicationContext: initialization completed in 670 ms
+2023-11-14 13:53:08.836 INFO  [restartedMain] [o.s.b.a.w.s.WelcomePageHandlerMapping] - Adding welcome page template: index
+2023-11-14 13:53:08.938 INFO  [restartedMain] [o.s.s.web.DefaultSecurityFilterChain] - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@565f74dc, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4780437d, org.springframework.security.web.context.SecurityContextPersistenceFilter@78c3d058, org.springframework.security.web.header.HeaderWriterFilter@c699507, org.springframework.security.web.csrf.CsrfFilter@45527420, org.springframework.security.web.authentication.logout.LogoutFilter@388f0977, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@123b99, org.springframework.security.web.session.ConcurrentSessionFilter@34eb99ea, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@7af11d8b, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@2fed02cd, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@b8f02dc, org.springframework.security.web.session.SessionManagementFilter@3c2d4da4, org.springframework.security.web.access.ExceptionTranslationFilter@7b4825d, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@133dc3ba]
+2023-11-14 13:53:09.099 INFO  [restartedMain] [o.s.b.d.a.OptionalLiveReloadServer] - LiveReload server is running on port 35729
+2023-11-14 13:53:09.109 INFO  [restartedMain] [o.apache.coyote.http11.Http11NioProtocol] - Starting ProtocolHandler ["http-nio-8087"]
+2023-11-14 13:53:09.119 INFO  [restartedMain] [o.s.b.w.embedded.tomcat.TomcatWebServer] - Tomcat started on port(s): 8087 (http) with context path ''
+2023-11-14 13:53:09.126 INFO  [restartedMain] [com.shop.ShopApplication] - Started ShopApplication in 1.566 seconds (JVM running for 1.938)
+2023-11-14 13:53:13.230 INFO  [http-nio-8087-exec-1] [o.a.c.c.C.[Tomcat].[localhost].[/]] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-11-14 13:53:13.230 INFO  [http-nio-8087-exec-1] [o.s.web.servlet.DispatcherServlet] - Initializing Servlet 'dispatcherServlet'
+2023-11-14 13:53:13.230 INFO  [http-nio-8087-exec-1] [o.s.web.servlet.DispatcherServlet] - Completed initialization in 0 ms
+2023-11-14 13:53:13.261 INFO  [http-nio-8087-exec-1] [com.zaxxer.hikari.HikariDataSource] - HikariPool-1 - Starting...
+2023-11-14 13:53:13.306 INFO  [http-nio-8087-exec-1] [com.zaxxer.hikari.HikariDataSource] - HikariPool-1 - Start completed.
+2023-11-14 14:05:02.940 INFO  [SpringApplicationShutdownHook] [com.zaxxer.hikari.HikariDataSource] - HikariPool-1 - Shutdown initiated...
+2023-11-14 14:05:02.942 INFO  [SpringApplicationShutdownHook] [com.zaxxer.hikari.HikariDataSource] - HikariPool-1 - Shutdown completed.
+2023-11-14 14:05:05.214 INFO  [background-preinit] [o.h.validator.internal.util.Version] - HV000001: Hibernate Validator 6.2.5.Final
+2023-11-14 14:05:05.217 INFO  [restartedMain] [com.shop.ShopApplication] - Starting ShopApplication using Java 17.0.7 on FULL8-011 with PID 16612 (C:\Users\db400tea\Desktop\1113\T_Store_Test\build\classes\java\main started by db400tea in C:\Users\db400tea\Desktop\1113\T_Store_Test)
+2023-11-14 14:05:05.218 INFO  [restartedMain] [com.shop.ShopApplication] - No active profile set, falling back to 1 default profile: "default"
+2023-11-14 14:05:05.348 INFO  [restartedMain] [o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor] - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-11-14 14:05:05.348 INFO  [restartedMain] [o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor] - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-11-14 14:05:05.973 INFO  [restartedMain] [o.s.b.w.embedded.tomcat.TomcatWebServer] - Tomcat initialized with port(s): 8087 (http)
+2023-11-14 14:05:05.978 INFO  [restartedMain] [o.apache.coyote.http11.Http11NioProtocol] - Initializing ProtocolHandler ["http-nio-8087"]
+2023-11-14 14:05:05.978 INFO  [restartedMain] [org.apache.catalina.core.StandardService] - Starting service [Tomcat]
+2023-11-14 14:05:05.978 INFO  [restartedMain] [org.apache.catalina.core.StandardEngine] - Starting Servlet engine: [Apache Tomcat/9.0.82]
+2023-11-14 14:05:06.020 INFO  [restartedMain] [o.a.c.c.C.[Tomcat].[localhost].[/]] - Initializing Spring embedded WebApplicationContext
+2023-11-14 14:05:06.020 INFO  [restartedMain] [o.s.b.w.s.c.ServletWebServerApplicationContext] - Root WebApplicationContext: initialization completed in 672 ms
+2023-11-14 14:05:06.302 INFO  [restartedMain] [o.s.b.a.w.s.WelcomePageHandlerMapping] - Adding welcome page template: index
+2023-11-14 14:05:06.403 INFO  [restartedMain] [o.s.s.web.DefaultSecurityFilterChain] - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@a159144, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@7aebddac, org.springframework.security.web.context.SecurityContextPersistenceFilter@f6628bd, org.springframework.security.web.header.HeaderWriterFilter@2d6b8828, org.springframework.security.web.csrf.CsrfFilter@67c102ae, org.springframework.security.web.authentication.logout.LogoutFilter@7f9f9544, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@58551b79, org.springframework.security.web.session.ConcurrentSessionFilter@13709534, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@7a8b6739, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@794c57c8, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@539425d4, org.springframework.security.web.session.SessionManagementFilter@61eda50b, org.springframework.security.web.access.ExceptionTranslationFilter@4fb17d63, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@338c1767]
+2023-11-14 14:05:06.571 INFO  [restartedMain] [o.s.b.d.a.OptionalLiveReloadServer] - LiveReload server is running on port 35729
+2023-11-14 14:05:06.582 INFO  [restartedMain] [o.apache.coyote.http11.Http11NioProtocol] - Starting ProtocolHandler ["http-nio-8087"]
+2023-11-14 14:05:06.592 INFO  [restartedMain] [o.s.b.w.embedded.tomcat.TomcatWebServer] - Tomcat started on port(s): 8087 (http) with context path ''
+2023-11-14 14:05:06.599 INFO  [restartedMain] [com.shop.ShopApplication] - Started ShopApplication in 1.561 seconds (JVM running for 1.959)
+2023-11-14 14:05:14.301 INFO  [http-nio-8087-exec-1] [o.a.c.c.C.[Tomcat].[localhost].[/]] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-11-14 14:05:14.301 INFO  [http-nio-8087-exec-1] [o.s.web.servlet.DispatcherServlet] - Initializing Servlet 'dispatcherServlet'
+2023-11-14 14:05:14.301 INFO  [http-nio-8087-exec-1] [o.s.web.servlet.DispatcherServlet] - Completed initialization in 0 ms
+2023-11-14 14:05:14.331 INFO  [http-nio-8087-exec-1] [com.zaxxer.hikari.HikariDataSource] - HikariPool-1 - Starting...
+2023-11-14 14:05:14.381 INFO  [http-nio-8087-exec-1] [com.zaxxer.hikari.HikariDataSource] - HikariPool-1 - Start completed.
+2023-11-14 14:14:09.762 INFO  [SpringApplicationShutdownHook] [com.zaxxer.hikari.HikariDataSource] - HikariPool-1 - Shutdown initiated...
+2023-11-14 14:14:09.765 INFO  [SpringApplicationShutdownHook] [com.zaxxer.hikari.HikariDataSource] - HikariPool-1 - Shutdown completed.

@@ -42,4 +42,9 @@
     <delete id="noticeDelete">
         delete from notice where no=#{no}
     </delete>
+
+    <!-- visit 증가 -->
+    <update id="visitCount">
+        update notice set cnt = cnt+1 where no=#{no}
+    </update>
 </mapper>

@@ -60,9 +60,11 @@ public class NoticeController {
         return "notice/noticeDetail";
     }
 
-    @GetMapping("/notice/insert")
-    public String noticeInsertForm(Model model){
-        return "notice/noticeInsert";
+    @GetMapping("insert")
+    public String insertForm(HttpServletRequest httpServletRequest, Model model) throws Exception {
+        String site = httpServletRequest.getParameter("site");
+        model.addAttribute("site", site);
+        return "/notice/noticeInsert";
     }
 
     @PostMapping("/notice/insert")
