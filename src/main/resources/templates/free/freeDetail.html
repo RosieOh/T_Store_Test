@@ -40,9 +40,7 @@
                                         </div>
                                     </div>
                                     <div class="card-text mt-4">
-                                        <div class="ms-3">
-                                            <p style="padding-top: 30px; padding-bottom: 100px;}" th:text="${free.content}"></p>
-                                        </div>
+                                        <div class="ms-3" th:utext="${free.content}"></div> <!-- 타임리프의 문제점 : th:text 사용시 데이터를 자동으로 매핑함으로써 자동으로 p 태그가 생김 -->
                                     </div>
                                 </div>
                             </div>

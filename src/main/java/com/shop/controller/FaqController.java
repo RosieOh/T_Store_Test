@@ -12,7 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 import java.util.List;
 
 @Controller
-@RequestMapping("/faq/")
+@RequestMapping("/faq/*")
 public class FaqController {
 
     @Autowired

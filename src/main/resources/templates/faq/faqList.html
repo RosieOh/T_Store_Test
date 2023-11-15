@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>공지사항</title>
+  <th:block th:replace="layout/head :: head"></th:block>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f8f9fa;
+      color: #343a40;
+    }
+
+    .container {
+      margin-top: 20px;
+    }
+
+    .page-title h3 {
+      font-size: 28px;
+      font-weight: bold;
+    }
+
+    .wrapper {
+      max-width: 600px; /* 조절 가능한 가로 길이 */
+      margin: 0 auto;
+      padding-top: 50px;
+    }
+
+    .faq {
+      border: 1px solid rgba(0, 0, 0, 0.2);
+      margin-bottom: 40px;
+    }
+
+    .accordion {
+      background-color: #fff;
+      color: #343a40;
+      cursor: pointer;
+      font-size: 18px;
+      width: 100%;
+      padding: 15px;
+      border: none;
+      outline: none;
+      transition: 0.4s;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: bold;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .accordion:hover {
+      background-color: #f1f7f5;
+    }
+
+    .active,
+    .accordion:hover {
+      background-color: #f1f7f5;
+    }
+
+    .pannel {
+      padding: 15px;
+      background-color: #f1f7f5;
+      display: none;
+      border-top: 1px solid #dee2e6;
+    }
+
+    .pannel p {
+      color: #495057;
+      font-size: 16px;
+      line-height: 1.6;
+    }
+  </style>
+</head>
+
+<body class="body-wrapper">
+<th:block th:replace="layout/header :: header"></th:block>
+
+<section class="page-title">
+  <!-- Container Start -->
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 offset-md-2 text-center">
+        <!-- Title text -->
+        <h3>공지사항</h3>
+      </div>
+    </div>
+  </div>
+  <!-- Container End -->
+</section>
+
+<!-- 보드 관련 내용 -->
+<div class="wrapper faq"  style="max-width: 500px; text-align: center; margin: 0 auto;" th:each="faq, status : ${faqList}" th:class="${status.index == 0} ? 'faq active' : 'faq'">
+  <div class="faq active">
+    <button class="accordion">
+      [[${status.index + 1}]]. &nbsp;&nbsp; [[${faq.question}]]
+      <i class="fa-solid fa-chevron-circle-down"></i>
+    </button>
+    <div class="pannel">
+      <p th:utext="${faq.answer}"></p>
+    </div>
+  </div>
+</div>
+
+<script th:inline="javascript">
+  document.addEventListener("DOMContentLoaded", function () {
+    var accordions = document.querySelectorAll('.accordion');
+
+    accordions.forEach(function (accordion) {
+      accordion.addEventListener('click', function () {
+        this.classList.toggle("active");
+        this.nextElementSibling.classList.toggle("active");
+
+        var pannel = this.nextElementSibling;
+
+        if (pannel.style.display === "block") {
+          pannel.style.display = "none";
+        } else {
+          pannel.style.display = "block";
+        }
+      });
+    });
+  });
+</script>
+
+<th:block th:replace="layout/footer :: footer"></th:block>
+</body>
+</html>
