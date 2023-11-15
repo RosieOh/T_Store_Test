@@ -56,14 +56,14 @@ public class UserController {
             throw new NoSuchDataException("No Such Data");
         }
         model.addAttribute("user", user);
-        return "user/get";
+        return "/user/get";
     }
 
     @GetMapping("/login")
     public String login(HttpSession session, Model model){
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         if (authentication instanceof AnonymousAuthenticationToken)
-            return "user/login";
+            return "/user/login";
         return "redirect:/";
     }
 

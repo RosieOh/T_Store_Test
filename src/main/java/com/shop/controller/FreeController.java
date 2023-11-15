@@ -97,7 +97,7 @@ public class FreeController {
     }
 
     @PostMapping("edit.do")
-    public String freeEdit(Free free, Model model) throws Exception {
+    public String freeUpdate(Free free, Model model) throws Exception {
         freeService.freeUpdate(free);
         return "redirect:/free/list.do";
     }

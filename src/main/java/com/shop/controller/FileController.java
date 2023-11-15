@@ -39,15 +39,16 @@ public class FileController {
     @Autowired
     HttpSession session;
 
-    @GetMapping("fileupload1.do")
+    @GetMapping("fileupload.do")
     public String fileUploadForm(){
         return "/file/fileupload";
     }
 
     // 파일 업로드를 처리하는 POST 메서드. MultipartHttpServletRequest를 이용하여 파일 및 다른 폼 데이터를 처리하고,
     // 업로드된 파일을 서버에 저장하고 파일 정보를 데이터베이스에 저장한 뒤, 파일 목록 페이지로 리다이렉트.
-    @PostMapping("fileupload1.do")
+    @PostMapping("fileupload.do")
     public String fileUpload1(MultipartHttpServletRequest files, HttpServletRequest req, Model model) throws Exception {
+        log.info("파일 업로드 한번 찍어보자고");
 
         //파라미터 분리
         Enumeration<String> e = files.getParameterNames();
@@ -66,8 +67,8 @@ public class FileController {
         // 제목 내용 끝
 
         // 톰캣에 저장되는데 이거 해결해야함...
-        String devFolder = uploadPath + "/resources/upload";
-        String uploadFolder = req.getRealPath("/resources/upload");
+        String devFolder = uploadPath + "/resources/static/upload";
+        String uploadFolder = req.getRealPath("/resources/static/upload");
         log.info("-----------------------------------");
         log.info(" 현재 프로젝트 홈 : "+req.getContextPath());
         log.info(" dispatcher-servlet에서 지정한 경로 : "+uploadPath);
@@ -140,7 +141,7 @@ public class FileController {
     }
 
     //특정 파일 정보를 조회
-    @GetMapping("getFileboard.do")
+    @GetMapping("detail.do")
     public String getFileboard(@RequestParam int postNo, Model model) throws Exception {
         FileVO fileboard = fileService.getFilebord(postNo);
         model.addAttribute("fileboard", fileboard);
@@ -150,7 +151,6 @@ public class FileController {
     // 파일을 물리적으로 삭제하고 데이터베이스에서도 해당 파일 정보를 삭제한 후, 파일 목록 페이지로 리다이렉트
     @GetMapping("removeFileboard.do")
     public String removeFileboard(@RequestParam int postNo, HttpServletRequest req) throws Exception {
-
         String path = req.getRealPath("/resources/upload");
         List<FileDTO> fileList = fileService.getFileGroupList(postNo);
         for(FileDTO fileobj : fileList) {
