@@ -57,7 +57,7 @@ public class FreeController {
         int fno = Integer.parseInt(httpServletRequest.getParameter("fno"));
         Free free = freeService.getFree(fno);
         model.addAttribute("free", free);
-        return "/free/freeList";
+        return "/free/freeDetail";
     }
 
     @GetMapping("insert.do")
@@ -76,11 +76,14 @@ public class FreeController {
 
         // 이거 관리자만 접근가능 하게
         String site = httpServletRequest.getParameter("site");
-        if(site.equals("admin")) {
+        if ("admin".equals(site)) {
             return "redirect:/free/list.do";
-        } else {
+        } else if ("user".equals(site)) {
+            return "redirect:/free/list.do";
+        } else if ("teacher".equals(site)) {
             return "redirect:/free/list.do";
         }
+        return "redirect:/free/list.do";
     }
 
     @GetMapping("delete.do")

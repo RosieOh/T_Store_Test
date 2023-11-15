@@ -235,12 +235,11 @@ SELECT * FROM review;
 COMMIT;
 
 CREATE TABLE free(
-                     fno INT PRIMARY KEY AUTO_INCREMENT,
-                     title VARCHAR(300) NOT NULL,
-                     content VARCHAR(1000) NOT NULL,
-                     author INT,
-                     regdate DATETIME DEFAULT CURRENT_TIME,
-                     visit INT DEFAULT 0,
-                     FOREIGN KEY(author) REFERENCES euser(id) ON DELETE CASCADE
+                       fno INT PRIMARY KEY AUTO_INCREMENT,
+                       title VARCHAR(300) NOT NULL,
+                       content VARCHAR(1000) NOT NULL,
+                       author INT,
+                       regdate DATETIME DEFAULT CURRENT_TIME,
+                       cnt INT DEFAULT 0,
+                       FOREIGN KEY(author) REFERENCES euser(id) ON DELETE CASCADE
 );
-

@@ -14,7 +14,6 @@
 
 
 <section class="page-title">
-    <!-- Container Start -->
     <div class="container">
         <div class="row">
             <div class="col-md-8 offset-md-2 text-center">
@@ -23,8 +22,8 @@
             </div>
         </div>
     </div>
-    <!-- Container End -->
 </section>
+
 
 <!--보드 관련 들어갈 내용-->
 <section id="pricing" class="pricing">
@@ -93,7 +92,7 @@
                 </li>
             </th:block>
             <li th:if="${page.blockLastNum < page.totalPageCount}" class="page-item">
-                <a th:href="@{|/notice/list?page=${page.blockLastNum + 1}|}" class="page-link">
+                <a th:href="@{|/free/list?page=${page.blockLastNum + 1}|}" class="page-link">
                     <i class="fa-solid fa-arrow-right"></i>
                 </a>
             </li>
@@ -101,10 +100,7 @@
     </div>
 </section>
 
-
 <th:block th:replace="layout/footer :: footer"></th:block>
-
-
 
 </body>
 

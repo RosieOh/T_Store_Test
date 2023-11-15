@@ -20,7 +20,7 @@
         <div class="row">
             <div class="col-md-8 offset-md-2 text-center">
                 <!-- Title text -->
-                <h3> 공지사항 세부 내용</h3>
+                <h3> 자유게시판 작성하기</h3>
             </div>
         </div>
     </div>
@@ -32,7 +32,7 @@
     <div class="container" data-aos="fade-up">
         <div class="col-lg-12" data-aos="fade-up" data-aos-delay="200">
             <div class="pricing-item featured" style="padding:0;">
-                <form th:action="@{/notice/insert.do}" method="post">
+                <form th:action="@{/free/insert.do}" method="post">
                     <div class="col-12">
                         <div class="card w-100">
                             <div class="card-body">
@@ -66,18 +66,10 @@
         </div>
     </div>
 </section>
-<!-- noticeInsert end -->
+
 </main>
 
-
-
-
-
-
-
 <th:block th:replace="layout/footer :: footer"></th:block>
-
-
 
 </body>
 
