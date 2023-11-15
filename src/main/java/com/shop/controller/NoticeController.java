@@ -4,6 +4,8 @@ import com.shop.entity.Notice;
 import com.shop.service.NoticeService;
 import com.shop.util.Page;
 import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -27,6 +29,7 @@ import java.util.UUID;
 @RequestMapping("/notice/*")
 public class NoticeController {
 
+    private Logger logger = LoggerFactory.getLogger(this.getClass());
     @Autowired
     private NoticeService noticeService;
 
@@ -57,15 +60,13 @@ public class NoticeController {
 
     @GetMapping("detail.do")
     public String getNotice(HttpServletRequest request, Model model) {
-
         int no = Integer.parseInt(request.getParameter("no"));
-
         Notice notice = noticeService.getNotice(no);
         model.addAttribute("notice", notice);
-
         return "notice/noticeDetail";
     }
-//    @PreAuthorize("hasAuthority('ADMIN')")
+
+//    @PreAuthorize("hasAuthority('ADMIN')") 안되면 이걸로 가자
     @GetMapping("insert.do")
     public String insertForm(HttpServletRequest httpServletRequest, Model model) throws Exception {
         String site = httpServletRequest.getParameter("site");
@@ -74,16 +75,13 @@ public class NoticeController {
     }
 
     @PostMapping("insert.do")
-    public String noticeInsert(HttpServletRequest httpServletRequest, Model model) throws Exception {
-        Notice notice = new Notice();
-        notice.setTitle(httpServletRequest.getParameter("title"));
-        notice.setContent(httpServletRequest.getParameter("content"));
+    public String noticeInsert(Notice notice, HttpServletRequest request, Model model) throws Exception {
         noticeService.noticeInsert(notice);
         // 안될 때는 아래껄로 다이렉트로 가자
         // return "redirect:/notice/list";
 
-        // 이거 관리자만 접근 가능하게
-        String site = httpServletRequest.getParameter("site");
+        // 이거 관리자만 접근 가능하
+        String site = request.getParameter("site");
         if ("admin".equals(site)) {
             return "redirect:/notice/list.do";
         } else {
@@ -91,35 +89,32 @@ public class NoticeController {
         }
     }
 
-
     @GetMapping("delete.do")
-    public String noticeDelete(HttpServletRequest httpServletRequest, Model model) throws Exception {
-        int no = Integer.parseInt(httpServletRequest.getParameter("no"));
+    public String noticeDelete(Integer no, Model model) throws Exception {
         noticeService.noticeDelete(no);
         return "redirect:/notice/list.do";
     }
 
+//    @GetMapping("edit.do")
+//    public String editForm(HttpServletRequest httpServletRequest, Model model) throws Exception {
+//        int no = Integer.parseInt(httpServletRequest.getParameter("no"));
+//        Notice notice = noticeService.getNotice(no);
+//        model.addAttribute("notice", notice);
+//        return "/notice/noticeEdit";
+//    }
+
     @GetMapping("edit.do")
-    public String editForm(HttpServletRequest httpServletRequest, Model model) throws Exception {
-        int no = Integer.parseInt(httpServletRequest.getParameter("no"));
+    public String editForm(Integer no, Model model) throws Exception {
         Notice notice = noticeService.getNotice(no);
         model.addAttribute("notice", notice);
         return "/notice/noticeEdit";
     }
 
     @PostMapping("edit.do")
-    public String noticeUpdate(HttpServletRequest httpServletRequest, Model model) throws Exception {
-        int no = Integer.parseInt(httpServletRequest.getParameter("no"));
-        Notice notice = new Notice();
-        notice.setNo(no);
-        notice.setTitle(httpServletRequest.getParameter("title"));
-        notice.setContent(httpServletRequest.getParameter("content"));
-        model.addAttribute("notice", notice);
-
+    public String noticeUpdate(Notice notice, Model model) {
         noticeService.noticeUpdate(notice);
         return "redirect:/notice/list.do";
     }
-
 
     //ckeditor를 이용한 이미지 업로드
     @RequestMapping(value = "imageUpload.do", method = RequestMethod.POST)

@@ -31,12 +31,13 @@
         select * from notice where no=#{no}
     </select>
 
-    <insert id="noticeInsert" parameterType="map">
+    <insert id="noticeInsert" parameterType="com.shop.entity.Notice">
         insert into notice values (default, #{notice.title}, #{notice.content}, 1, default, default)
     </insert>
 
-    <update id="noticeUpdate" parameterType="map">
-        update notice set title=#{notice.title}, content=#{notice.content} where no=#{notice.no}
+    <!-- 공지사항 글 수정 -->
+    <update id="noticeUpdate" parameterType="com.shop.entity.Notice">
+        update notice set title=#{title}, content=#{content} where no=#{no}
     </update>
 
     <delete id="noticeDelete">

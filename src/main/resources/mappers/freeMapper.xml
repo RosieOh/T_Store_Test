@@ -31,12 +31,12 @@
         select * from free where fno=#{fno}
     </select>
 
-    <insert id="freeInsert" parameterType="map">
+    <insert id="freeInsert" parameterType="com.shop.entity.Free">
         insert into free values (default, #{free.title}, #{free.content}, 1, default, default)
     </insert>
 
-    <update id="freeUpdate" parameterType="map">
-        update free set title=#{free.title}, content=#{free.content} where fno=#{free.fno}
+    <update id="freeUpdate" parameterType="com.shop.entity.Free">
+        update free set title=#{title}, content=#{content} where fno=#{fno}
     </update>
 
     <delete id="freeDelete">

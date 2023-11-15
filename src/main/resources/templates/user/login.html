@@ -8,18 +8,15 @@
     <th:block th:replace="layout/head :: head"></th:block>
 </head>
 
-<body class="body-wrapper">
+<body class="body-wrapper" style="background: linear-gradient(to right, #71AEE8, #77E9CE)";>
 
-
-<th:block th:replace="layout/header :: header"></th:block>
-
-<section class="login py-5 border-top-1">
-    <div class="container">
+<section class="login py-5 border-top-1 d-flex" style="margin-top: 200px;"> <!-- 추가: d-flex 및 align-items-center 클래스로 세로 중앙 정렬 -->
+    <div class="container text-center">
         <div class="row justify-content-center">
-            <div class="col-lg-5 col-md-8 align-item-center">
+            <div class="col-lg-5 col-md-8 align-item-center mx-auto">
                 <div class="border">
                     <h3 class="bg-gray p-4">Login Now</h3>
-                    <form  th:action="@{/auth}" method="post">
+                    <form th:action="@{/auth}" method="post">
                         <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
                         <fieldset class="p-4">
                             <input type="text" class="form-control mb-3" name="name" placeholder="Username" pattern="^[a-z0-9]*$" required/>
@@ -29,7 +26,7 @@
                                 <label for="keep-me-logged-in" class="pt-3 pb-2">Keep me logged in</label>
                             </div>
                             <button type="submit" class="btn btn-primary font-weight-bold mt-3">Log in</button>
-                            <a class="mt-3 d-inline-block text-primary" th:href="@{/join}">Register Now</a>
+                            <a class="btn btn-primary font-weight-bold mt-3" th:href="@{/join}">Register Now</a>
                         </fieldset>
                     </form>
                 </div>
@@ -38,10 +35,5 @@
     </div>
 </section>
 
-<th:block th:replace="layout/footer :: footer"></th:block>
-
-
-
 </body>
-
 </html>

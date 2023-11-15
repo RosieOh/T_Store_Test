@@ -68,14 +68,11 @@ public class FreeController {
     }
 
     @PostMapping("insert.do")
-    public String freeInsert(HttpServletRequest httpServletRequest, Model model) throws Exception {
-        Free free = new Free();
-        free.setTitle(httpServletRequest.getParameter("title"));
-        free.setContent(httpServletRequest.getParameter("content"));
+    public String freeInsert(Free free, HttpServletRequest request, Model model) throws Exception {
         freeService.freeInsert(free);
 
         // 이거 관리자만 접근가능 하게
-        String site = httpServletRequest.getParameter("site");
+        String site = request.getParameter("site");
         if ("admin".equals(site)) {
             return "redirect:/free/list.do";
         } else if ("user".equals(site)) {
@@ -87,27 +84,20 @@ public class FreeController {
     }
 
     @GetMapping("delete.do")
-    public String freeDelete(HttpServletRequest httpServletRequest, Model model) throws Exception {
-        int fno = Integer.parseInt(httpServletRequest.getParameter("fno"));
+    public String freeDelete(Integer fno, Model model) throws Exception {
         freeService.freeDelete(fno);
         return "redirect:/free/list.do";
     }
 
     @GetMapping("edit.do")
-    public String editForm(HttpServletRequest httpServletRequest, Model model) throws Exception {
-        int fno = Integer.parseInt(httpServletRequest.getParameter("fno"));
+    public String editForm(Integer fno, Model model) throws Exception {
         Free free = freeService.getFree(fno);
         model.addAttribute("free", free);
         return "/free/freeEdit";
     }
 
     @PostMapping("edit.do")
-    public String freeEdit(HttpServletRequest httpServletRequest, Model model) throws Exception {
-        int fno = Integer.parseInt(httpServletRequest.getParameter("fno"));
-        Free free = new Free();
-        free.setFno(fno);
-        free.setTitle(httpServletRequest.getParameter("title"));
-        free.setContent(httpServletRequest.getParameter("content"));
+    public String freeEdit(Free free, Model model) throws Exception {
         freeService.freeUpdate(free);
         return "redirect:/free/list.do";
     }

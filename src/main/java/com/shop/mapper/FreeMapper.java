@@ -19,7 +19,7 @@ public interface FreeMapper {
     int getCount(Page page);
     void visitCount(int fno);
     void freeInsert(@Param("free") Free free);
-    void freeUpdate(@Param("free") Free free);
+    void freeUpdate(Free free);
     void freeDelete(int fno);
 
 

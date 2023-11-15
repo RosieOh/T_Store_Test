@@ -4,6 +4,12 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <title>공지사항</title>
+    <style>
+        /* 스타일을 추가하여 링크에 밑줄을 제거 */
+        .pricing-item a {
+            text-decoration: none;
+        }
+    </style>
     <th:block th:replace="layout/head :: head"></th:block>
 </head>
 
@@ -14,16 +20,13 @@
 
 
 <section class="page-title">
-    <!-- Container Start -->
     <div class="container">
         <div class="row">
             <div class="col-md-8 offset-md-2 text-center">
-                <!-- Title text -->
                 <h3> 공지사항 </h3>
             </div>
         </div>
     </div>
-    <!-- Container End -->
 </section>
 
 <!--보드 관련 들어갈 내용-->
@@ -34,14 +37,14 @@
                 <div class="col-md-4">
                     <form th:action="@{/notice/list.do}" method="get" class="input-group">
                         <div class="input-group-prepend">
-                            <select class="custom-select" id="type" name="type">
+                            <select class="custom-select" id="type" name="type" style="height: 38px;"> <!-- 높이 조절 -->
                                 <option value="title">제목</option>
                                 <option value="content">내용</option>
                             </select>
                         </div>
-                        <input type="text" class="form-control" id="keyword" name="keyword" placeholder="검색어를 입력하세요" th:value="${keyword}">
+                        <input type="text" class="form-control" id="keyword" name="keyword" placeholder="검색어를 입력하세요" th:value="${keyword}" style="height: 38px;"> <!-- 높이 조절 -->
                         <div class="input-group-append">
-                            <button type="submit" class="btn btn-primary">검색</button>
+                            <button type="submit" class="btn btn-primary" style="height: 38px;">검색</button>
                         </div>
                     </form>
                 </div>
@@ -79,7 +82,8 @@
             </div>
         </div>
     </div>
-
+    <br>
+    <br>
     <div class="oneMusic-pagination-area wow">
         <ul class="pagination justify-content-center mb-0" style="padding-bottom: 50px;">
             <li th:if="${curPage > 5}" class="page-item">

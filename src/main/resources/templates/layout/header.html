@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org"
-      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
 <th:block th:fragment="header">
-<header style="max-width: 1500px; min-width: 1500px; padding-left: 500px;">
+    <header style="max-width: 1500px; min-width: 1500px; margin: 0 auto">
         <div class="container" style="max-width: 1500px;">
             <div class="row">
                 <div class="col-md-12">
@@ -15,16 +15,18 @@
                             <span class="navbar-toggler-icon"></span>
                         </button>
                         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                            <ul class="navbar-nav ml-auto main-nav ">
+                            <ul class="navbar-nav ml-auto main-nav">
+                                <!-- Home -->
                                 <li class="nav-item active">
                                     <a class="nav-link" th:href="@{/}">Home</a>
                                 </li>
-                                <li class="nav-item dropdown dropdown-slide @@dashboard">
-                                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#!">상품 목록<span><i class="fa fa-angle-down"></i></span>
-                                    </a>
 
+                                <!-- 상품 목록 Dropdown -->
+                                <li class="nav-item dropdown dropdown-slide @@dashboard">
+                                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#!">상품 목록<span><i class="fa fa-angle-down"></i></span></a>
                                     <!-- Dropdown list -->
                                     <ul class="dropdown-menu">
+                                        <!-- 초등 -->
                                         <li class="dropdown dropdown-submenu dropright">
                                             <a class="dropdown-item dropdown-toggle" href="#!" id="dropdown0501" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">초등</a>
                                             <ul class="dropdown-menu" aria-labelledby="dropdown0501">
@@ -34,6 +36,7 @@
                                                 <li><a class="dropdown-item" href="index.html"> 탐구 </a></li>
                                             </ul>
                                         </li>
+                                        <!-- 중등 -->
                                         <li class="dropdown dropdown-submenu dropright">
                                             <a class="dropdown-item dropdown-toggle" href="#!" id="dropdown0502" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">중등</a>
                                             <ul class="dropdown-menu" aria-labelledby="dropdown0502">
@@ -43,10 +46,10 @@
                                                 <li><a class="dropdown-item" href="index.html"> 탐구 </a></li>
                                             </ul>
                                         </li>
+                                        <!-- 고등 -->
                                         <li class="dropdown dropdown-submenu dropright">
                                             <a class="dropdown-item dropdown-toggle" href="#!" id="dropdown0503" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">고등</a>
-
-                                            <ul class="dropdown-menu" aria-labelledby="dropdown0501">
+                                            <ul class="dropdown-menu" aria-labelledby="dropdown0503">
                                                 <li><a class="dropdown-item" href="index.html"> 국어 </a></li>
                                                 <li><a class="dropdown-item" href="index.html"> 수학 </a></li>
                                                 <li><a class="dropdown-item" href="index.html"> 영어 </a></li>
@@ -55,6 +58,8 @@
                                         </li>
                                     </ul>
                                 </li>
+
+                                <!-- 커뮤니티 Dropdown -->
                                 <li class="nav-item dropdown dropdown-slide @@pages">
                                     <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         커뮤니티 <span><i class="fa fa-angle-down"></i></span>
@@ -62,15 +67,17 @@
                                     <!-- Dropdown list -->
                                     <ul class="dropdown-menu">
                                         <li><a class="dropdown-item" th:href="@{/notice/list.do}"> 공지사항 </a></li>
-                                        <li><a class="dropdown-item" href="index.html"> 자유게시판 </a></li>
-                                        <li><a class="dropdown-item" href="index.html"> 자주 묻는 질문 </a></li>
+                                        <li><a class="dropdown-item" th:href="@{/free/list.do}"> 자유게시판 </a></li>
+                                        <li><a class="dropdown-item" th:href="@{/faq/list.do}"> 자주 묻는 질문 </a></li>
                                         <li><a class="dropdown-item" href="index.html"> 자료실 </a></li>
                                     </ul>
                                 </li>
+
                             </ul>
 
-                            <!-- 로그인 하지 않은 경우 -->
+                            <!-- 로그인 여부에 따른 메뉴 -->
                             <ul class="navbar-nav ml-auto mt-10">
+                                <!-- 로그인하지 않은 경우 -->
                                 <th:block sec:authorize="isAnonymous()">
                                     <li class="nav-item">
                                         <a th:href="@{/join}" class="nav-link login-button">회원가입</a>
@@ -79,49 +86,50 @@
                                         <a th:href="@{/login}" class="nav-link text-white add-button">로그인</a>
                                     </li>
                                 </th:block>
-                            </ul>
 
-                            <!-- 로그인을 한 경우 -->
-                            <ul class="navbar-nav ml-auto mt-10">
+                                <!-- 로그인 한 경우 -->
                                 <th:block sec:authorize="isAuthenticated()">
-<!--                                    <li class="nav-link login-button">아이디: <span th:text="${#authentication.principal}"></span></li>-->
-                                    <li class="nav-link">사용자 : <span th:text="${#authentication.authorities}"></span></li>
-
+                                    <li class="nav-link">사용자: <span th:text="${#authentication.authorities}"></span></li>
                                     <li class="nav-item">
-                                        <a th:href="@{/updateForm(name=${#authentication.principal})}"  class="nav-link text-white add-button">수정</a>
-                                        &nbsp;
+                                        <a th:href="@{/updateForm(name=${#authentication.principal})}" class="nav-link text-white add-button">수정</a>
                                     </li>
                                     <li class="nav-item">
                                         <form th:action="@{/logout}" method="post">
                                             <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
-                                            <button type="submit"  class="nav-link login-button">로그아웃</button>
+                                            <button type="submit" class="nav-link login-button">로그아웃</button>
                                         </form>
                                     </li>
                                     <ul class="navbar-nav ml-auto mt-10" style="height: 38px;">
                                         <th:block sec:authorize="hasAuthority('ADMIN')">
-                                            <li class="nav-link login-button"><a th:href="@{/admin/adminMain}" class="nav-link">관리자 페이지</a></li>
+                                            <li class="nav-link login-button">
+                                                <a th:href="@{/admin/adminMain}" class="nav-link">관리자 페이지</a>
+                                            </li>
                                         </th:block>
                                         <th:block sec:authorize="hasAuthority('EMP')">
-                                            <li class="nav-item"><a th:href="@{/emp/empMain}" class="nav-link">직원 페이지</a></li>
+                                            <li class="nav-item">
+                                                <a th:href="@{/emp/empMain}" class="nav-link">직원 페이지</a>
+                                            </li>
                                         </th:block>
                                         <th:block sec:authorize="hasAuthority('USER')">
-                                            <li class="nav-item"><a th:href="@{/user/userMain}" class="nav-link">마이 페이지</a></li>
+                                            <li class="nav-item">
+                                                <a th:href="@{/user/userMain}" class="nav-link">마이 페이지</a>
+                                            </li>
                                         </th:block>
                                         <th:block sec:authorize="hasAuthority('TEACHER')">
-                                            <li class="nav-item"><a th:href="@{/user/teacherMain}" class="nav-link">교사용 페이지</a></li>
+                                            <li class="nav-item">
+                                                <a th:href="@{/user/teacherMain}" class="nav-link">교사용 페이지</a>
+                                            </li>
                                         </th:block>
-
-<!--                                    <li class="nav-item">-->
-<!--                                        <a th:href="@{/user/withdraw(id=${#authentication.principal})}" class="nav-link login-button">탈퇴</a>-->
-<!--                                    </li>-->
                                     </ul>
                                 </th:block>
                             </ul>
+
                         </div>
                     </nav>
                 </div>
             </div>
         </div>
-</header>
+    </header>
 </th:block>
+
 </html>

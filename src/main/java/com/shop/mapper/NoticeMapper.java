@@ -17,6 +17,6 @@ public interface NoticeMapper {
     int getCount(Page page);
     void visitCount(int no);
     void noticeInsert(@Param("notice") Notice notice);
-    void noticeUpdate(@Param("notice") Notice notice);
+    void noticeUpdate(Notice notice);
     void noticeDelete(int no);
 }
