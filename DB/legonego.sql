@@ -260,3 +260,51 @@ CREATE TABLE product (
                          status VARCHAR(50) DEFAULT 'SALE',
                          visited INT DEFAULT 0
 );
+
+-- 테스트 DB
+INSERT INTO product VALUES(DEFAULT, '상품1', '상품4 내용', '초등 국어', 'sirious920', 15000, '신림동', 1, DEFAULT, DEFAULT, 'SALE', DEFAULT);
+INSERT INTO product VALUES(DEFAULT, '상품2', '상품1 내용', '초등 수학', 'sirious920', 15000, '신림동', 1, DEFAULT, DEFAULT, 'SALE', DEFAULT);
+INSERT INTO product VALUES(DEFAULT, '상품3', '상품1 내용', '초등 영어', 'sirious920', 15000, '신림동', 1, DEFAULT, DEFAULT, 'SALE', DEFAULT);
+INSERT INTO product VALUES(DEFAULT, '상품4', '상품1 내용', '초등 탐구', 'sirious920', 15000, '신림동', 1, DEFAULT, DEFAULT, 'SALE', DEFAULT);
+INSERT INTO product VALUES(DEFAULT, '상품5', '상품2 내용', '중등 국어', 'sirious920', 15000, '신림동', 1, DEFAULT, DEFAULT, 'SALE', DEFAULT);
+INSERT INTO product VALUES(DEFAULT, '상품6', '상품2 내용', '중등 수학', 'sirious920', 15000, '신림동', 1, DEFAULT, DEFAULT, 'SALE', DEFAULT);
+INSERT INTO product VALUES(DEFAULT, '상품7', '상품2 내용', '중등 영어', 'sirious920', 15000, '신림동', 1, DEFAULT, DEFAULT, 'SALE', DEFAULT);
+INSERT INTO product VALUES(DEFAULT, '상품8', '상품2 내용', '중등 탐구', 'sirious920', 15000, '신림동', 1, DEFAULT, DEFAULT, 'SALE', DEFAULT);
+INSERT INTO product VALUES(DEFAULT, '상품9', '상품2 내용', '고등 국어', 'sirious920', 15000, '신림동', 1, DEFAULT, DEFAULT, 'SALE', DEFAULT);
+INSERT INTO product VALUES(DEFAULT, '상품10', '상품3 내용', '고등 수학', 'sirious920', 15000, '신림동', 1, DEFAULT, DEFAULT, 'SALE', DEFAULT);
+INSERT INTO product VALUES(DEFAULT, '상품11', '상품2 내용', '고등 영어', 'sirious920', 15000, '신림동', 1, DEFAULT, DEFAULT, 'SALE', DEFAULT);
+INSERT INTO product VALUES(DEFAULT, '상품12', '상품2 내용', '고등 탐구', 'sirious920', 15000, '신림동', 1, DEFAULT, DEFAULT, 'SALE', DEFAULT);
+
+-- ==============================================================================================================================
+-- 채팅방
+CREATE TABLE chat (
+    rno int PRIMARY KEY AUTO_INCREMENT,       -- 고유 번호
+    userId VARCHAR(20) NOT NULL,            -- member.id
+    pno INT NOT NULL,                       -- product.pno
+    status VARCHAR(50) DEFAULT 'ON',        -- ON(진행), OFF(차단)
+    UNIQUE (userId, pno)                    -- memId와 pno를 묶어서 UNIQUE 제약 설정
+);
+
+-- 채팅 메시지
+CREATE TABLE chatMessage(
+    cno int PRIMARY KEY AUTO_INCREMENT,         -- 채팅 번호
+    type VARCHAR(20) NOT NULL,                  -- 채팅 타입: ENTER, TALK, LEAVE, NOTICE
+    rno INT NOT NULL,                           -- 채팅방 번호
+    messagesender VARCHAR(20) NOT NULL,         -- 송신자
+    message VARCHAR(2000) NOT NULL,             -- 채팅 메시지
+    status VARCHAR(50) DEFAULT 'UNREAD',        -- 읽음 여부
+    time TIMESTAMP DEFAULT CURRENT_TIMESTAMP    -- 채팅 발송 시간
+);
+
+-- ==============================================================================================================================
+-- 상품 카테고리
+CREATE TABLE category(
+    cate VARCHAR(50) NOT NULL PRIMARY KEY, 	-- 카테고리 코드
+    cname VARCHAR(100) NOT NULL
+);
+
+INSERT INTO category VALUES('A', '국어');
+INSERT INTO category VALUES('B', '수학');
+INSERT INTO category VALUES('C', '영어');
+INSERT INTO category values('D', '탐구');
+
