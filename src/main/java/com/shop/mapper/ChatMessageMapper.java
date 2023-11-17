@@ -8,18 +8,11 @@ import java.util.List;
 @Mapper
 public interface ChatMessageMapper {
     List<ChatMessage> ChatMessageList(int rno);
-
     int ChatMessageNotRead(int rno);
-
     ChatMessage getChatMessageList();
-
     int ChatMessageInsert();
-
     int ChatMessageReadUpdate(int cno, String MessageSender);
-
     int ChatMessageSenderReadUpdate(int rno, String MessageSender);
-
     int ChatMessageSenderRemoveUpdate(int cno);
-
     int ChatMessageDelete(int cno);
 }
