@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.shop.mapper.ProductMapper">
+
+    <select id="productList" resultType="com.shop.entity.Product" parameterType="com.shop.util.Page">
+        SELECT * FROM product WHERE
+        <if test="page.searchType != null and page.searchType != ''">
+            ${page.searchType} LIKE CONCAT('%', #{page.searchKeyword}, '%') AND
+        </if>
+        status != 'REMOVE' ORDER BY createAt ASC LIMIT #{page.postStart}, #{page.postCount}
+    </select>
+
+    <select id="productListBySeller" resultType="com.shop.entity.Product" parameterType="map">
+        SELECT * FROM product WHERE seller = #{seller}
+        <if test="page.searchType != null and page.searchType != ''">
+            AND ${page.searchType} LIKE CONCAT('%', #{page.searchKeyword}, '%')
+        </if>
+        ORDER BY createAt ASC LIMIT #{page.postStart}, #{page.postScreen}
+    </select>
+
+    <select id="productCountBySeller" resultType="int" parameterType="map">
+        SELECT COUNT(*) FROM product WHERE seller = #{seller}
+        <if test="page.searchType != null and page.searchType != ''">
+            AND ${page.searchType} LIKE CONCAT('%', #{page.searchKeyword}, '%')
+        </if>
+    </select>
+
+    <select id="getProduct" resultType="com.shop.entity.Product" parameterType="long">
+        SELECT * FROM product WHERE pno=#{pno}
+    </select>
+
+    <insert id="productInsert" parameterType="com.shop.entity.Product">
+        INSERT INTO product (pname, content, category, seller, price, proaddr, image) VALUES (#{pname}, #{content}, #{category}, #{seller}, #{price}, #{addr}, #{image})
+    </insert>
+
+    <update id="productUpdate" parameterType="com.shop.entity.Product">
+        UPDATE product SET pname=#{pname}, content=#{content}, category=#{category}, seller=#{seller}, price=#{price}, proaddr=#{addr}, image=#{image} WHERE pno=#{pno}
+    </update>
+
+    <update id="productStatusUpdate" parameterType="map">
+        UPDATE product SET status=#{status} WHERE pno=#{pno}
+    </update>
+
+    <delete id="productDelete" parameterType="long">
+        DELETE FROM product WHERE pno=#{pno}
+    </delete>
+
+</mapper>

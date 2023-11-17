@@ -4,12 +4,12 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.List;
-
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
-public class FileVO {
-    private FileBoard fileBoard;
-    private List<FileDTO> fileList;
+@NoArgsConstructor
+public class Chat {
+    private int rno;
+    private String userId;
+    private int pno;
+    private String status = "ON";
 }

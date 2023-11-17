@@ -243,3 +243,20 @@ CREATE TABLE free(
                        cnt INT DEFAULT 0,
                        FOREIGN KEY(author) REFERENCES euser(id) ON DELETE CASCADE
 );
+
+-- ==============================================================================================================================
+
+CREATE TABLE product (
+                         pno INT PRIMARY KEY AUTO_INCREMENT,
+                         pname VARCHAR(200) NOT NULL,
+                         content varchar(1000),
+                         category VARCHAR(255),
+                         seller VARCHAR(100) NOT NULL,
+                         price INT not null DEFAULT 0,
+                         addr VARCHAR(200),
+                         image int,
+                         createAt timestamp not null default current_timestamp,
+                         baseAt timestamp not null default current_timestamp,
+                         status VARCHAR(50) DEFAULT 'SALE',
+                         visited INT DEFAULT 0
+);
