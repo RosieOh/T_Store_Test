@@ -133,35 +133,6 @@ SELECT * FROM faq;
 
 COMMIT;
 
-
--- ==========================================================
-
-CREATE TABLE fileobj (
-                         no int NOT NULL AUTO_INCREMENT PRIMARY KEY,
-                         postno INT NOT NULL,
-                         savefolder VARCHAR(400),
-                         originfile VARCHAR(400),
-                         savefile VARCHAR(800),
-                         filesize LONG,
-                         uploaddate VARCHAR(100)
-);
-
-DESC fileobj;
-SELECT *  FROM fileobj;
-COMMIT;
-
-CREATE TABLE fileboard (
-                           postno int NOT NULL AUTO_INCREMENT PRIMARY KEY,	-- 글 번호
-                           title VARCHAR(100) not null,   -- 글제목
-                           content VARCHAR(1500) not null,    -- 글내용
-                           regdate DATETIME DEFAULT CURRENT_TIMESTAMP(),   -- 작성일
-                           visited INT DEFAULT 0   -- 조회수
-);
-
-DESC fileboard;
-SELECT *  FROM FILEobj;
-COMMIT;
-
 -- ==========================================================
 
 -- 댓글 처리
@@ -235,13 +206,13 @@ SELECT * FROM review;
 COMMIT;
 
 CREATE TABLE free(
-                       fno INT PRIMARY KEY AUTO_INCREMENT,
-                       title VARCHAR(300) NOT NULL,
-                       content VARCHAR(1000) NOT NULL,
-                       author INT,
-                       regdate DATETIME DEFAULT CURRENT_TIME,
-                       cnt INT DEFAULT 0,
-                       FOREIGN KEY(author) REFERENCES euser(id) ON DELETE CASCADE
+                     fno INT PRIMARY KEY AUTO_INCREMENT,
+                     title VARCHAR(300) NOT NULL,
+                     content VARCHAR(1000) NOT NULL,
+                     author INT,
+                     regdate DATETIME DEFAULT CURRENT_TIME,
+                     cnt INT DEFAULT 0,
+                     FOREIGN KEY(author) REFERENCES euser(id) ON DELETE CASCADE
 );
 
 -- ==============================================================================================================================
@@ -262,49 +233,73 @@ CREATE TABLE product (
 );
 
 -- 테스트 DB
-INSERT INTO product VALUES(DEFAULT, '상품1', '상품4 내용', '초등 국어', 'sirious920', 15000, '신림동', 1, DEFAULT, DEFAULT, 'SALE', DEFAULT);
-INSERT INTO product VALUES(DEFAULT, '상품2', '상품1 내용', '초등 수학', 'sirious920', 15000, '신림동', 1, DEFAULT, DEFAULT, 'SALE', DEFAULT);
-INSERT INTO product VALUES(DEFAULT, '상품3', '상품1 내용', '초등 영어', 'sirious920', 15000, '신림동', 1, DEFAULT, DEFAULT, 'SALE', DEFAULT);
-INSERT INTO product VALUES(DEFAULT, '상품4', '상품1 내용', '초등 탐구', 'sirious920', 15000, '신림동', 1, DEFAULT, DEFAULT, 'SALE', DEFAULT);
-INSERT INTO product VALUES(DEFAULT, '상품5', '상품2 내용', '중등 국어', 'sirious920', 15000, '신림동', 1, DEFAULT, DEFAULT, 'SALE', DEFAULT);
-INSERT INTO product VALUES(DEFAULT, '상품6', '상품2 내용', '중등 수학', 'sirious920', 15000, '신림동', 1, DEFAULT, DEFAULT, 'SALE', DEFAULT);
-INSERT INTO product VALUES(DEFAULT, '상품7', '상품2 내용', '중등 영어', 'sirious920', 15000, '신림동', 1, DEFAULT, DEFAULT, 'SALE', DEFAULT);
-INSERT INTO product VALUES(DEFAULT, '상품8', '상품2 내용', '중등 탐구', 'sirious920', 15000, '신림동', 1, DEFAULT, DEFAULT, 'SALE', DEFAULT);
-INSERT INTO product VALUES(DEFAULT, '상품9', '상품2 내용', '고등 국어', 'sirious920', 15000, '신림동', 1, DEFAULT, DEFAULT, 'SALE', DEFAULT);
-INSERT INTO product VALUES(DEFAULT, '상품10', '상품3 내용', '고등 수학', 'sirious920', 15000, '신림동', 1, DEFAULT, DEFAULT, 'SALE', DEFAULT);
-INSERT INTO product VALUES(DEFAULT, '상품11', '상품2 내용', '고등 영어', 'sirious920', 15000, '신림동', 1, DEFAULT, DEFAULT, 'SALE', DEFAULT);
-INSERT INTO product VALUES(DEFAULT, '상품12', '상품2 내용', '고등 탐구', 'sirious920', 15000, '신림동', 1, DEFAULT, DEFAULT, 'SALE', DEFAULT);
+INSERT INTO product VALUES(DEFAULT, '상품1', '상품4 내용', 'A_1', 'sirious920', 15000, '신림동', 1, DEFAULT, DEFAULT, 'SALE', DEFAULT);
+INSERT INTO product VALUES(DEFAULT, '상품2', '상품1 내용', 'A_2', 'sirious920', 15000, '신림동', 1, DEFAULT, DEFAULT, 'SALE', DEFAULT);
+INSERT INTO product VALUES(DEFAULT, '상품3', '상품1 내용', 'A_3', 'sirious920', 15000, '신림동', 1, DEFAULT, DEFAULT, 'SALE', DEFAULT);
+INSERT INTO product VALUES(DEFAULT, '상품4', '상품1 내용', 'A_4', 'sirious920', 15000, '신림동', 1, DEFAULT, DEFAULT, 'SALE', DEFAULT);
+INSERT INTO product VALUES(DEFAULT, '상품5', '상품2 내용', 'B_1', 'sirious920', 15000, '신림동', 1, DEFAULT, DEFAULT, 'SALE', DEFAULT);
+INSERT INTO product VALUES(DEFAULT, '상품6', '상품2 내용', 'B_2', 'sirious920', 15000, '신림동', 1, DEFAULT, DEFAULT, 'SALE', DEFAULT);
+INSERT INTO product VALUES(DEFAULT, '상품7', '상품2 내용', 'B_3', 'sirious920', 15000, '신림동', 1, DEFAULT, DEFAULT, 'SALE', DEFAULT);
+INSERT INTO product VALUES(DEFAULT, '상품8', '상품2 내용', 'B_4', 'sirious920', 15000, '신림동', 1, DEFAULT, DEFAULT, 'SALE', DEFAULT);
+INSERT INTO product VALUES(DEFAULT, '상품9', '상품2 내용', 'C_1', 'sirious920', 15000, '신림동', 1, DEFAULT, DEFAULT, 'SALE', DEFAULT);
+INSERT INTO product VALUES(DEFAULT, '상품10', '상품3 내용', 'C_2', 'sirious920', 15000, '신림동', 1, DEFAULT, DEFAULT, 'SALE', DEFAULT);
+INSERT INTO product VALUES(DEFAULT, '상품11', '상품2 내용', 'C_3', 'sirious920', 15000, '신림동', 1, DEFAULT, DEFAULT, 'SALE', DEFAULT);
+INSERT INTO product VALUES(DEFAULT, '상품12', '상품2 내용', 'C_4', 'sirious920', 15000, '신림동', 1, DEFAULT, DEFAULT, 'SALE', DEFAULT);
+
+DESC product;
+
+SELECT * FROM product;
+
+COMMIT;
 
 -- ==============================================================================================================================
 -- 채팅방
 CREATE TABLE chat (
-    rno int PRIMARY KEY AUTO_INCREMENT,       -- 고유 번호
-    userId VARCHAR(20) NOT NULL,            -- member.id
-    pno INT NOT NULL,                       -- product.pno
-    status VARCHAR(50) DEFAULT 'ON',        -- ON(진행), OFF(차단)
-    UNIQUE (userId, pno)                    -- memId와 pno를 묶어서 UNIQUE 제약 설정
+                      rno int PRIMARY KEY AUTO_INCREMENT,       -- 고유 번호
+                      userId VARCHAR(20) NOT NULL,            -- member.id
+                      pno INT NOT NULL,                       -- product.pno
+                      status VARCHAR(50) DEFAULT 'ON',        -- ON(진행), OFF(차단)
+                      UNIQUE (userId, pno)                    -- memId와 pno를 묶어서 UNIQUE 제약 설정
 );
 
 -- 채팅 메시지
 CREATE TABLE chatMessage(
-    cno int PRIMARY KEY AUTO_INCREMENT,         -- 채팅 번호
-    type VARCHAR(20) NOT NULL,                  -- 채팅 타입: ENTER, TALK, LEAVE, NOTICE
-    rno INT NOT NULL,                           -- 채팅방 번호
-    messagesender VARCHAR(20) NOT NULL,         -- 송신자
-    message VARCHAR(2000) NOT NULL,             -- 채팅 메시지
-    status VARCHAR(50) DEFAULT 'UNREAD',        -- 읽음 여부
-    time TIMESTAMP DEFAULT CURRENT_TIMESTAMP    -- 채팅 발송 시간
+                            cno int PRIMARY KEY AUTO_INCREMENT,         -- 채팅 번호
+                            type VARCHAR(20) NOT NULL,                  -- 채팅 타입: ENTER, TALK, LEAVE, NOTICE
+                            rno INT NOT NULL,                           -- 채팅방 번호
+                            messagesender VARCHAR(20) NOT NULL,         -- 송신자
+                            message VARCHAR(2000) NOT NULL,             -- 채팅 메시지
+                            status VARCHAR(50) DEFAULT 'UNREAD',        -- 읽음 여부
+                            time TIMESTAMP DEFAULT CURRENT_TIMESTAMP    -- 채팅 발송 시간
 );
 
 -- ==============================================================================================================================
 -- 상품 카테고리
 CREATE TABLE category(
-    cate VARCHAR(50) NOT NULL PRIMARY KEY, 	-- 카테고리 코드
-    cname VARCHAR(100) NOT NULL
+                         cate VARCHAR(50) NOT NULL PRIMARY KEY, 	-- 카테고리 코드
+                         cname VARCHAR(100) NOT NULL
 );
 
-INSERT INTO category VALUES('A', '국어');
-INSERT INTO category VALUES('B', '수학');
-INSERT INTO category VALUES('C', '영어');
-INSERT INTO category values('D', '탐구');
+-- 초딩 잼민이들
+INSERT INTO category VALUES('A_1', '초등국어');
+INSERT INTO category VALUES('A_2', '초등수학');
+INSERT INTO category VALUES('A_3', '초등영어');
+INSERT INTO category values('A_4', '초등탐구');
 
+-- 중등 잼민이들
+INSERT INTO category VALUES('B_1', '중등국어');
+INSERT INTO category VALUES('B_2', '중등수학');
+INSERT INTO category VALUES('B_3', '중등영어');
+INSERT INTO category values('B_4', '중등탐구');
+
+-- 고딩 성숙한 잼민이들
+INSERT INTO category VALUES('C_1', '중등국어');
+INSERT INTO category VALUES('C_2', '중등수학');
+INSERT INTO category VALUES('C_3', '중등영어');
+INSERT INTO category values('C_4', '중등탐구');
+
+DESC category;
+
+SELECT * FROM category;
+
+COMMIT;
