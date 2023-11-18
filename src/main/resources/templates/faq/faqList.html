@@ -22,13 +22,12 @@
     }
 
     .wrapper {
-      max-width: 600px; /* 조절 가능한 가로 길이 */
+      max-width: 1000px; /* 조절 가능한 가로 길이 */
       margin: 0 auto;
       padding-top: 50px;
     }
 
     .faq {
-      border: 1px solid rgba(0, 0, 0, 0.2);
       margin-bottom: 40px;
     }
 
@@ -36,9 +35,9 @@
       background-color: #fff;
       color: #343a40;
       cursor: pointer;
-      font-size: 18px;
+      font-size: 20px;
       width: 100%;
-      padding: 15px;
+      padding: 15px 20px;
       border: none;
       outline: none;
       transition: 0.4s;
@@ -46,8 +45,7 @@
       justify-content: space-between;
       align-items: center;
       font-weight: bold;
-      border-radius: 5px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
     }
 
     .accordion:hover {
@@ -72,56 +70,66 @@
       line-height: 1.6;
     }
   </style>
+  <style>
+    .page-title {
+      padding: 80px 0; /* 조절 가능한 상단 및 하단 여백 */
+    }
+  </style>
+
 </head>
 
 <body class="body-wrapper">
 <th:block th:replace="layout/header :: header"></th:block>
 
-<section class="page-title">
-  <!-- Container Start -->
+<section class="page-title" style="background: linear-gradient(to right, #71AEE8, #77E9CE);">
   <div class="container">
     <div class="row">
       <div class="col-md-8 offset-md-2 text-center">
-        <!-- Title text -->
-        <h3> 자주 묻는 질문 </h3>
+        <h3> 공지사항 세부 내용 </h3>
       </div>
     </div>
   </div>
-  <!-- Container End -->
 </section>
 
 <!-- 보드 관련 내용 -->
-<div class="wrapper faq"  style="max-width: 500px; text-align: center; margin: 0 auto;" th:each="faq, status : ${faqList}" th:class="${status.index == 0} ? 'faq active' : 'faq'">
-  <div class="faq active">
-    <button class="accordion">
-      [[${status.index + 1}]]. &nbsp;&nbsp; [[${faq.question}]]
-      <i class="fa-solid fa-chevron-circle-down"></i>
-    </button>
-    <div class="pannel">
-      <p th:utext="${faq.answer}"></p>
+<div class="wrapper">
+  <th:block th:each="faq, status : ${faqList}">
+    <div th:class="${status.index == 0} ? 'faq active' : 'faq'">
+      <button class="accordion">
+        [[${status.count}]]. &nbsp;&nbsp; [[${faq.question}]]
+        <i class="fa-solid fa-chevron-circle-down"></i>
+      </button>
+      <div class="pannel">
+        <p th:utext="${faq.answer}"></p>
+      </div>
     </div>
-  </div>
+    <br/>
+    <br/>
+  </th:block>
+  <br/>
+  <br/>
+  <br/>
 </div>
 
+
 <script th:inline="javascript">
-  document.addEventListener("DOMContentLoaded", function () {
-    var accordions = document.querySelectorAll('.accordion');
+  var acc = document.getElementsByClassName("accordion");
+  var i;
 
-    accordions.forEach(function (accordion) {
-      accordion.addEventListener('click', function () {
-        this.classList.toggle("active");
-        this.nextElementSibling.classList.toggle("active");
+  for(i=0; i<acc.length; i++){
+    acc[i].addEventListener("click", function (){
+      this.classList.toggle("active");
+      this.parentElement.classList.toggle("active");
 
-        var pannel = this.nextElementSibling;
+      var pannel = this.nextElementSibling;
 
-        if (pannel.style.display === "block") {
-          pannel.style.display = "none";
-        } else {
-          pannel.style.display = "block";
-        }
-      });
+      if(pannel.style.display === "block"){
+        pannel.style.display = "none";
+      } else {
+        pannel.style.display = "block";
+      }
     });
-  });
+  }
 </script>
 
 <th:block th:replace="layout/footer :: footer"></th:block>

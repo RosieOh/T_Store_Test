@@ -6,13 +6,18 @@
     <title>자유게시판 수정하기</title>
     <th:block th:replace="layout/head :: head"></th:block>
     <script src="https://cdn.ckeditor.com/4.20.0/standard/ckeditor.js"></script>
+    <style>
+        .page-title {
+            padding: 80px 0; /* 조절 가능한 상단 및 하단 여백 */
+        }
+    </style>
 </head>
 
 <body class="body-wrapper">
 <th:block th:replace="layout/header :: header"></th:block>
 
 <main id="main">
-    <section class="page-title">
+    <section class="page-title" style="background: linear-gradient(to right, #71AEE8, #77E9CE);">
         <div class="container">
             <div class="row">
                 <div class="col-md-8 offset-md-2 text-center">

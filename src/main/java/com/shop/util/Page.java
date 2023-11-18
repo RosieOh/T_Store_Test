@@ -17,6 +17,12 @@ public class Page {
     private String searchType = "";
     private String searchKeyword = "";
 
+    // 상품관련 페이지 지정
+    private String category;
+    private Long pno;
+    private String addr;
+    private String status;
+
     // 전체 페이지 개수 구하는 메소드
     public void makePostStart(int curPage, int total){
 

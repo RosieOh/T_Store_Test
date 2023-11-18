@@ -10,6 +10,11 @@
             text-decoration: none;
         }
     </style>
+    <style>
+        .page-title {
+            padding: 80px 0; /* 조절 가능한 상단 및 하단 여백 */
+        }
+    </style>
     <th:block th:replace="layout/head :: head"></th:block>
 </head>
 
@@ -19,7 +24,7 @@
 <th:block th:replace="layout/header :: header"></th:block>
 
 
-<section class="page-title">
+<section class="page-title" style="background: linear-gradient(to right, #71AEE8, #77E9CE);">
     <div class="container">
         <div class="row">
             <div class="col-md-8 offset-md-2 text-center">
