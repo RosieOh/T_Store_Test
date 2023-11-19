@@ -1,31 +1,23 @@
 package com.shop.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.validation.constraints.NotNull;
 
-@Data
-@Builder
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 public class ChatMessage {
     public enum MessageType {
-        ENTER, TALK, LEAVE, NOTICE
+        ENTER, TALK
     }
 
-    private int cno;
-    @NotNull
     private MessageType type;
-    @NotNull
-    private int rno;
-    @NotNull
-    private String messageSender;
-    @NotNull
+    //채팅방 ID
+    private String roomId;
+    //보내는 사람
+    private String sender;
+    //내용
     private String message;
-    private String status = "NOTREAD";
-    private String time;
-
 }

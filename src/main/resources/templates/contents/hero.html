@@ -52,10 +52,12 @@
                                                 </select>
                                             </div>
                                             <div class="form-group col-lg-3 col-md-6">
-                                                <input type="text" class="form-control my-2 my-lg-1" id="inputLocation4" placeholder="저자명">
+                                                <form th:action="@{/book/list.do}" method="post" id="searchForm" class="input-group">
+                                                    <input type="text" id="text" name="text" maxlength="50" placeholder="책 제목을 입력해주세요" class="form-control">
+                                                </form>
                                             </div>
                                             <div class="form-group col-xl-2 col-lg-3 col-md-6 align-self-center">
-                                                <button type="submit" class="btn btn-primary active w-100">Search Now</button>
+                                                <button type="submit" class="btn btn-primary active w-100" value="검색" style="background: linear-gradient(to right, #71AEE8, #77E9CE);">Search Now</button>
                                             </div>
                                         </div>
                                     </form>

@@ -1,24 +1,47 @@
 package com.shop.service;
 
 import com.shop.entity.Chat;
+import com.shop.entity.ChatRoom;
 import com.shop.mapper.ChatMapper;
+import groovy.util.logging.Slf4j;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
+import javax.annotation.PostConstruct;
+import java.util.*;
 
 @Service
+@Slf4j
+@RequiredArgsConstructor
 public class ChatService {
 
-    @Autowired
-    private ChatMapper chatMapper;
+    private Map<String, ChatRoom> chatRooms;
 
-    public List<Chat> chatList() { return chatMapper.chatList();}
-    public List<Chat> chatProductList(int pno) { return chatMapper.chatProductList(pno);}
-    public Chat getChat(int rno) { return chatMapper.getChat(rno);}
-    public Chat getChatId(int pno, String userId) {return getChatId(pno, userId);}
-    public Chat getChatUnique(String userId, int pno) {return getChatUnique(userId, pno);}
-    public void ChatInsert(String userId, int pno) {chatMapper.ChatInsert(userId, pno);}
-    public void ChatOffUpdate(int rno) { chatMapper.ChatOffUpdate(rno);}
-    public int ChatDelete(int rno) { return chatMapper.ChatDelete(rno);}
+    @PostConstruct
+    //의존관게 주입완료되면 실행되는 코드
+    private void init() {
+        chatRooms = new LinkedHashMap<>();
+    }
+
+    //채팅방 불러오기
+    public List<ChatRoom> findAllRoom() {
+        //채팅방 최근 생성 순으로 반환
+        List<ChatRoom> result = new ArrayList<>(chatRooms.values());
+        Collections.reverse(result);
+
+        return result;
+    }
+
+    //채팅방 하나 불러오기
+    public ChatRoom findById(String roomId) {
+        return chatRooms.get(roomId);
+    }
+
+    //채팅방 생성
+    public ChatRoom createRoom(String name) {
+        ChatRoom chatRoom = ChatRoom.create(name);
+        chatRooms.put(chatRoom.getRoomId(), chatRoom);
+        return chatRoom;
+    }
 }
