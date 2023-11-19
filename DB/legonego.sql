@@ -1,5 +1,6 @@
 create database legonego;
 
+
 -- 윈도우 노트북 한글 인코딩 안될 때 사용
 ALTER DATABASE legonego DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
 
@@ -15,7 +16,8 @@ CREATE TABLE ROLE(
 SELECT * FROM ROLE;
 
 INSERT INTO ROLE VALUES (DEFAULT, 'ADMIN');
-
+INSERT INTO ROLE VALUES (DEFAULT, 'TEACHER');
+INSERT INTO ROLE VALUES (DEFAULT, 'USER');
 -- ========================================= 안쓸듯 ===============================================
 CREATE TABLE user(
                      user_id INT PRIMARY KEY AUTO_INCREMENT,
@@ -262,6 +264,12 @@ CREATE TABLE chat (
                       UNIQUE (userId, pno)                    -- memId와 pno를 묶어서 UNIQUE 제약 설정
 );
 
+desc chat;
+
+SELECT * from chat;
+
+commit;
+
 -- 채팅 메시지
 CREATE TABLE chatMessage(
                             cno int PRIMARY KEY AUTO_INCREMENT,         -- 채팅 번호
@@ -272,6 +280,12 @@ CREATE TABLE chatMessage(
                             status VARCHAR(50) DEFAULT 'UNREAD',        -- 읽음 여부
                             time TIMESTAMP DEFAULT CURRENT_TIMESTAMP    -- 채팅 발송 시간
 );
+
+desc chatMessage;
+
+SELECT * from chatMessage;
+
+commit;
 
 -- ==============================================================================================================================
 -- 상품 카테고리
@@ -303,3 +317,52 @@ DESC category;
 SELECT * FROM category;
 
 COMMIT;
+
+-- ==============================================================================================================================
+
+CREATE TABLE bookbuy(
+                        bbno INT PRIMARY KEY AUTO_INCREMENT,
+                        title VARCHAR(300) NOT NULL,
+                        content VARCHAR(1000) NOT NULL,
+                        author INT,
+                        regdate DATETIME DEFAULT CURRENT_TIME,
+                        cnt INT DEFAULT 0,
+                        FOREIGN KEY(author) REFERENCES euser(id) ON DELETE CASCADE
+);
+
+INSERT INTO bookbuy VALUES (DEFAULT,'샘플 글 제목1  입니다.','여기는 샘플 글 1의 내용입니다.',1,DEFAULT, DEFAULT);
+INSERT INTO bookbuy VALUES (DEFAULT,'샘플 글 제목2  입니다.','여기는 샘플 글 2의 내용입니다.',1,DEFAULT, DEFAULT);
+INSERT INTO bookbuy VALUES (DEFAULT,'샘플 글 제목3  입니다.','여기는 샘플 글 3의 내용입니다.',1,DEFAULT, DEFAULT);
+INSERT INTO bookbuy VALUES (DEFAULT,'샘플 글 제목4  입니다.','여기는 샘플 글 4의 내용입니다.',1,DEFAULT, DEFAULT);
+INSERT INTO bookbuy VALUES (DEFAULT,'샘플 글 제목5  입니다.','여기는 샘플 글 5의 내용입니다.',1,DEFAULT, DEFAULT);
+INSERT INTO bookbuy VALUES (DEFAULT,'샘플 글 제목6  입니다.','여기는 샘플 글 6의 내용입니다.',1,DEFAULT, DEFAULT);
+
+desc bookbuy
+
+select * from bookbuy
+
+-- ==============================================================================================================================
+
+CREATE TABLE booksell(
+                         bsno INT PRIMARY KEY AUTO_INCREMENT,
+                         title VARCHAR(300) NOT NULL,
+                         content VARCHAR(1000) NOT NULL,
+                         author INT,
+                         regdate DATETIME DEFAULT CURRENT_TIME,
+                         cnt INT DEFAULT 0,
+                         FOREIGN KEY(author) REFERENCES euser(id) ON DELETE CASCADE
+);
+
+INSERT INTO booksell VALUES (DEFAULT,'샘플 글 제목1  입니다.','여기는 샘플 글 1의 내용입니다.',1,DEFAULT, DEFAULT);
+INSERT INTO booksell VALUES (DEFAULT,'샘플 글 제목2  입니다.','여기는 샘플 글 2의 내용입니다.',1,DEFAULT, DEFAULT);
+INSERT INTO booksell VALUES (DEFAULT,'샘플 글 제목3  입니다.','여기는 샘플 글 3의 내용입니다.',1,DEFAULT, DEFAULT);
+INSERT INTO booksell VALUES (DEFAULT,'샘플 글 제목4  입니다.','여기는 샘플 글 4의 내용입니다.',1,DEFAULT, DEFAULT);
+INSERT INTO booksell VALUES (DEFAULT,'샘플 글 제목5  입니다.','여기는 샘플 글 5의 내용입니다.',1,DEFAULT, DEFAULT);
+INSERT INTO booksell VALUES (DEFAULT,'샘플 글 제목6  입니다.','여기는 샘플 글 6의 내용입니다.',1,DEFAULT, DEFAULT);
+
+desc booksell
+
+select * from booksell
+
+-- ==============================================================================================================================
+
