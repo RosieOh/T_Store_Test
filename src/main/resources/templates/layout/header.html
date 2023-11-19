@@ -108,7 +108,7 @@
                                 <!-- 로그인 한 경우 -->
                                 <th:block sec:authorize="isAuthenticated()">
                                     <li class="nav-item">
-                                        <a th:href="@{/updateForm(name=${#authentication.principal})}" class="nav-link text-white add-button">수정</a>
+                                        <a th:href="@{/updateForm(id=${#authentication.principal})}" class="nav-link text-white add-button">수정</a>
                                     </li>
                                     &nbsp;
                                     <li class="nav-item">

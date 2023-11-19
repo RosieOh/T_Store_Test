@@ -9,21 +9,16 @@
                 <div class="col-md-12">
                     <!-- Header Contetnt -->
                     <div class="content-block">
-                        <h1>Buy & Sell Book Near You </h1>
+                        <h3 style="color: white;"> 당신의 잠들어 있는 책을 공유해보세요 </h3>
                         <p></p>
                         <div class="short-popular-category-list text-center">
                             <h2>Popular Category</h2>
                             <ul class="list-inline">
                                 <li class="list-inline-item">
-                                    <a href="category.html"><i class="fa fa-bed"></i> Hotel</a></li>
-                                <li class="list-inline-item">
-                                    <a href="category.html"><i class="fa fa-grav"></i> Fitness</a>
+                                    <a href="category.html"><i class="fa fa-book"></i> book </a>
                                 </li>
                                 <li class="list-inline-item">
-                                    <a href="category.html"><i class="fa fa-car"></i> Cars</a>
-                                </li>
-                                <li class="list-inline-item">
-                                    <a href="category.html"><i class="fa fa-cutlery"></i> Restaurants</a>
+                                    <a href="category.html"><i class="fa fa-tablet"></i> Mobile </a>
                                 </li>
                                 <li class="list-inline-item">
                                     <a href="category.html"><i class="fa fa-coffee"></i> Cafe</a>
@@ -40,10 +35,9 @@
                                     <form>
                                         <div class="form-row">
                                             <div class="form-group col-xl-4 col-lg-3 col-md-6">
-                                                <input type="text" class="form-control my-2 my-lg-1" id="inputtext4"
-                                                       placeholder="찾으시는 도서명을 입력해주세요.">
+                                                <input type="text" class="form-control my-2 my-lg-1" id="inputtext4" placeholder="찾으시는 도서명을 입력해주세요.">
                                             </div>
-                                            <div class="form-group col-lg-3 col-md-6">
+                                            <div class="form-group col-lg-3 col-md-6 align-self-center">
                                                 <select class="w-100 form-control mt-lg-1 mt-md-2">
                                                     <option>Category</option>
                                                     <option value="1"> 초등 </option>
@@ -51,8 +45,8 @@
                                                     <option value="3"> 고등 </option>
                                                 </select>
                                             </div>
-                                            <div class="form-group col-lg-3 col-md-6">
-                                                <form th:action="@{/book/list.do}" method="post" id="searchForm" class="input-group">
+                                            <div class="form-group col-lg-3 col-md-6 align-self-center">
+                                                <form th:action="@{/book/list.do}" method="post" id="searchForm" class="input-group" style="padding-top: 20px;">
                                                     <input type="text" id="text" name="text" maxlength="50" placeholder="책 제목을 입력해주세요" class="form-control">
                                                 </form>
                                             </div>
