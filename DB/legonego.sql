@@ -374,4 +374,4 @@ CREATE TABLE qna(
                     resdate TIMESTAMP DEFAULT CURRENT_TIMESTAMP,  -- 등록일
                     lev INT DEFAULT 0, 									-- 질문(0), 답변(1)
                     par INT DEFAULT 0
-);	
+);
