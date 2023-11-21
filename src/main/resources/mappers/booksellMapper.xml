@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.shop.mapper.BookSellMapper">
+
+    <select id="getList" resultType="com.shop.entity.BookSell">
+        <![CDATA[
+        select * from booksell
+        ]]>
+        <where>
+            <if test="searchType != null">
+                <choose>
+                    <when test="searchType == 'title'.toString()">
+                        title LIKE concat('%', #{searchKeyword}, '%')
+                    </when>
+                    <when test="searchType == 'content'.toString()">
+                        content LIKE concat('%', #{searchKeyword}, '%')
+                    </when>
+                </choose>
+            </if>
+        </where>
+        <![CDATA[
+        order by regdate desc LIMIT #{postStart}, #{postCount}
+        ]]>
+    </select>
+
+    <select id="getCount" resultType="integer">
+        select count(*) from booksell
+    </select>
+
+    <select id="getBookSell" parameterType="com.shop.entity.BookSell">
+        select * from booksell where bsno=#{bsno}
+    </select>
+
+    <insert id="booksellInsert" parameterType="com.shop.entity.BookSell">
+        insert into booksell values (default, #{booksell.title}, #{booksell.content}, 1, default, default)
+    </insert>
+
+    <!-- 공지사항 글 수정 -->
+    <update id="booksellUpdate" parameterType="com.shop.entity.BookSell">
+        update booksell set title=#{title}, content=#{content} where bsno=#{bsno}
+    </update>
+
+    <delete id="booksellDelete">
+        delete from booksell where bsno=#{bsno}
+    </delete>
+
+    <!-- visit 증가 -->
+    <update id="visitCount">
+        update booksell set visit = visit+1 where bsno=#{bsno}
+    </update>
+
+</mapper>

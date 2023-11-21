@@ -1,47 +1,63 @@
 package com.shop.service;
 
-import com.shop.entity.Chat;
-import com.shop.entity.ChatRoom;
-import com.shop.mapper.ChatMapper;
-import groovy.util.logging.Slf4j;
+import com.shop.domain.Chat;
+import com.shop.domain.Room;
+import com.shop.repository.ChatRepository;
+import com.shop.repository.RoomRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.PostConstruct;
-import java.util.*;
+import java.util.List;
 
 @Service
-@Slf4j
 @RequiredArgsConstructor
 public class ChatService {
+    private final RoomRepository roomRepository;
+    private final ChatRepository chatRepository;
 
-    private Map<String, ChatRoom> chatRooms;
-
-    @PostConstruct
-    //의존관게 주입완료되면 실행되는 코드
-    private void init() {
-        chatRooms = new LinkedHashMap<>();
+    /**
+     * 모든 채팅방 찾기
+     */
+    public List<Room> findAllRoom() {
+        return roomRepository.findAll();
     }
 
-    //채팅방 불러오기
-    public List<ChatRoom> findAllRoom() {
-        //채팅방 최근 생성 순으로 반환
-        List<ChatRoom> result = new ArrayList<>(chatRooms.values());
-        Collections.reverse(result);
-
-        return result;
+    /**
+     * 특정 채팅방 찾기
+     * @param id room_id
+     */
+    public Room findRoomById(Long id) {
+        return roomRepository.findById(id).orElseThrow();
     }
 
-    //채팅방 하나 불러오기
-    public ChatRoom findById(String roomId) {
-        return chatRooms.get(roomId);
+    /**
+     * 채팅방 만들기
+     * @param name 방 이름
+     */
+    public Room createRoom(String name) {
+        return roomRepository.save(Room.createRoom(name));
     }
 
-    //채팅방 생성
-    public ChatRoom createRoom(String name) {
-        ChatRoom chatRoom = ChatRoom.create(name);
-        chatRooms.put(chatRoom.getRoomId(), chatRoom);
-        return chatRoom;
+    /////////////////
+
+    /**
+     * 채팅 생성
+     * @param roomId 채팅방 id
+     * @param sender 보낸이
+     * @param message 내용
+     */
+    public Chat createChat(Long roomId, String sender, String message) {
+        Room room = roomRepository.findById(roomId).orElseThrow();  //방 찾기 -> 없는 방일 경우 여기서 예외처리
+        return chatRepository.save(Chat.createChat(room, sender, message));
     }
+
+    /**
+     * 채팅방 채팅내용 불러오기
+     * @param roomId 채팅방 id
+     */
+    public List<Chat> findAllChatByRoomId(Long roomId) {
+        return chatRepository.findAllByRoomId(roomId);
+    }
+
+
 }

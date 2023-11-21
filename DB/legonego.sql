@@ -326,7 +326,7 @@ CREATE TABLE bookbuy(
                         content VARCHAR(1000) NOT NULL,
                         author INT,
                         regdate DATETIME DEFAULT CURRENT_TIME,
-                        cnt INT DEFAULT 0,
+                        visit INT DEFAULT 0,
                         FOREIGN KEY(author) REFERENCES euser(id) ON DELETE CASCADE
 );
 
@@ -349,7 +349,7 @@ CREATE TABLE booksell(
                          content VARCHAR(1000) NOT NULL,
                          author INT,
                          regdate DATETIME DEFAULT CURRENT_TIME,
-                         cnt INT DEFAULT 0,
+                         visit INT DEFAULT 0,
                          FOREIGN KEY(author) REFERENCES euser(id) ON DELETE CASCADE
 );
 
@@ -375,3 +375,5 @@ CREATE TABLE qna(
                     lev INT DEFAULT 0, 									-- 질문(0), 답변(1)
                     par INT DEFAULT 0
 );
+
+

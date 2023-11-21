@@ -1,0 +1,70 @@
+<!-- <!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Tsherpa</title>
+    <th:block th:replace="layout/head :: head"></th:block>
+</head>
+
+<body class="body-wrapper">
+
+
+<th:block th:replace="layout/header :: header"></th:block>
+
+<form th:action="@{/chat/room}" method="post">
+    <input name="name"><br>
+    <input type="submit" value="방 만들기">
+</form>
+
+<th:block th:replace="layout/footer :: footer"></th:block>
+
+
+
+</body>
+
+</html> -->
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Tsherpa</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <th:block th:replace="layout/head :: head"></th:block>
+</head>
+
+<body class="body-wrapper">
+
+<th:block th:replace="layout/header :: header"></th:block>
+
+<div class="container mt-5">
+    <form th:action="@{/chat/room}" method="post" class="text-center">
+        <div class="form-group">
+            <label for="roomName">방 이름:</label>
+            <input type="text" class="form-control" id="roomName" name="name" placeholder="방 이름을 입력하세요">
+        </div>
+        <button type="submit" class="btn btn-primary">방 만들기</button>
+    </form>
+</div>
+
+<th:block th:replace="layout/footer :: footer"></th:block>
+
+<!-- 부트스트랩 JS 및 기타 스크립트 추가 -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
+        integrity="sha384-pzjw8Y+JqLkoC0rT0N3b7I5Q2XbtAXrHvSIc6Z4uU7Fq2J2zQFAW/dAiS6JXm"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8sh+Wy8NY5RnZ4PkB4YfEa53I1j6j6MYY/aJ1"
+        crossorigin="anonymous"></script>
+
+</body>
+</html>
+
+
+

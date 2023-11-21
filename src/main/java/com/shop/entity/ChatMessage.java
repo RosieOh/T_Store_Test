@@ -1,23 +1,21 @@
 package com.shop.entity;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-import javax.validation.constraints.NotNull;
+import java.time.LocalDateTime;
 
-@Getter
-@Setter
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 public class ChatMessage {
-    public enum MessageType {
-        ENTER, TALK
-    }
 
-    private MessageType type;
-    //채팅방 ID
-    private String roomId;
-    //보내는 사람
+    private Long roomId;
     private String sender;
-    //내용
     private String message;
+    private LocalDateTime sendDate;
+
 }
