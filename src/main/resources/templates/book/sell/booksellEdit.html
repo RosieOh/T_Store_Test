@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>공지사항</title>
+  <th:block th:replace="layout/head :: head"></th:block>
+  <script src="https://cdn.ckeditor.com/4.20.0/standard/ckeditor.js"></script>
+  <style>
+    .page-title {
+      padding: 80px 0; /* 조절 가능한 상단 및 하단 여백 */
+    }
+  </style>
+</head>
+
+<body class="body-wrapper">
+<th:block th:replace="layout/header :: header"></th:block>
+
+<section class="page-title" style="background: linear-gradient(to right, #71AEE8, #77E9CE); padding: 100px 0;">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 offset-md-2 text-center">
+        <h3> 도서 팝니다. </h3>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <section id="pricing" class="pricing" style="padding-top: 40px !important;">
+    <div class="container" data-aos="fade-up">
+      <div class="col-lg-12" data-aos="fade-up" data-aos-delay="200">
+        <div class="pricing-item featured" style="padding: 0;">
+          <form th:action="@{/booksell/edit.do}" method="post">
+            <div class="col-12">
+              <div class="card w-100">
+                <div class="card-body">
+                  <div class="table-responsive project-list">
+                    <table class="table project-table table-centered table-nowrap" style="border: none;">
+                      <tbody>
+                      <tr>
+                        <input type="hidden" th:value="${bookSell.bsno}" id="bsno" name="bsno">
+                        <!--                                                <th class="text-center" style="vertical-align: middle; width: 10%; border: none;">제목</th>-->
+                        <td style="border: none;"><input type="text" id="title" name="title" class="form-control" th:value="${bookSell.title}" required></td>
+                      </tr>
+                      <tr>
+                        <!--                                                <th class="text-center" style="vertical-align: middle; width: 10%; border: none;">내용</th>-->
+                        <td colspan="6" style="font-size: 15px;">
+                          <!-- 내용을 입력하는 textarea 태그 부분 수정 -->
+                          <textarea name="content" id="content" th:text="${bookSell.content}" cols="100" rows="8" maxlength="1000" class="single-textarea" style="height: 400px; border: none; outline: none;"></textarea>
+
+                          <script>
+                            CKEDITOR.replace('content',	{filebrowserUploadUrl:'/booksell/imageUpload.do'});
+                          </script>
+                        </td>
+                      </tr>
+                      </tbody>
+                    </table>
+                    <div class="btn-group float-right mr-3" style="float: right; padding-bottom: 50px;">
+                      <a th:href="@{/booksell/list.do}" class="btn btn-outline-dark">목록</a>
+                    </div>
+                    <div class="btn-group float-right mr-3" style="float:right;">
+                      <input type="submit" id="btn" class="btn btn-dark" style="height: 100%; " value="등록">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<th:block th:replace="layout/footer :: footer"></th:block>
+
+</body>
+
+</html>

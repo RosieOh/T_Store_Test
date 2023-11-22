@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>공지사항</title>
+  <style>
+    /* 스타일을 추가하여 링크에 밑줄을 제거 */
+    .pricing-item a {
+      text-decoration: none;
+    }
+  </style>
+  <style>
+    .page-title {
+      padding: 80px 0; /* 조절 가능한 상단 및 하단 여백 */
+    }
+  </style>
+  <th:block th:replace="layout/head :: head"></th:block>
+</head>
+
+<body class="body-wrapper">
+
+
+<th:block th:replace="layout/header :: header"></th:block>
+
+
+<section class="page-title" style="background: linear-gradient(to right, #71AEE8, #77E9CE); padding: 100px 0;">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 offset-md-2 text-center">
+        <h3> 도서 팝니다. </h3>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="container" style="padding-bottom: 100px;">
+  <!-- boardDetail start-->
+  <section id="pricing" class="pricing" style="padding-top: 40px !important;">
+    <div class="container" data-aos="fade-up">
+      <div class="col-lg-12" data-aos="fade-up" data-aos-delay="200">
+        <div class="pricing-item featured" style="padding: 0;">
+          <section style="padding-top: 0;">
+            <div style="display: flex; justify-content: center;">
+              <div class="card" style="width: 100%;">
+                <div class="card-body" >
+                  <div class="card-title" style="padding-bottom: 20px; border-bottom: 1px solid;">
+                    <div class="d-flex align-items-center mt-3">
+                      <div class="ms-3">
+                        <p class="mb-0" style="font-weight: bold; padding-bottom: 5px;"><h3 th:text="${booksell.title}"></h3></p>
+                        <p class="mb-0">작성자 | <span th:if="${booksell.author == 1}">관리자</span> 작성일 | <span th:text="${#dates.format(booksell.regdate,'yyyy-MM-dd')}"></span> 조회수 | <span th:text="${booksell.cnt}"></span></p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card-text mt-4">
+                    <div class="ms-3" th:utext="${booksell.content}"></div> <!-- 타임리프의 문제점 : th:text 사용시 데이터를 자동으로 매핑함으로써 자동으로 p 태그가 생김 -->
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div style="width: 100%; margin-top: 30px;">
+              <button class="btn btn-light btn-lg" style="width:200px; float: right; background-color: #0d42ff; font-weight: bold; color: #fff;"><a th:href="@{/booksell/list.do}" style="color: #fff; text-decoration: none;">목록</a></button>
+              <button class="btn btn-light btn-lg" style="width:200px; float: right; border-color: #000000; font-weight: bold; margin-left: 10px; margin-right: 10px; "><a th:href="@{/booksell/delete.do(bsno = ${booksell.bsno})}" style="text-decoration: none;">삭제</a></button>
+              <button class="btn btn-dark btn-lg" style="width:200px; float: right; background-color: #4f5665; font-weight: bold; "><a class="button" th:href="@{/booksell/edit.do(bsno=${booksell.bsno})}" style="color: #fff; text-decoration: none;">수정</a></button>
+              <div> </div>
+              <button class="btn btn-light btn-lg" style="width:200px; float: right; background-color: #4f5665; font-weight: bold; "><a class="button" th:href="@{/chat/roomList}" style="color: #fff; text-decoration: none;">채팅하기</a></button>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+<!-- boardDetail end -->
+
+
+
+
+<th:block th:replace="layout/footer :: footer"></th:block>
+
+
+</body>
+
+</html>
