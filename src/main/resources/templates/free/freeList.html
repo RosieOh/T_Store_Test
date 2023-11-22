@@ -55,6 +55,16 @@
                             <a th:href="@{/free/insert.do}" class="nav-link">글작성</a>
                         </li>
                     </th:block>
+                    <th:block sec:authorize="hasAuthority('TEACHER')">
+                        <li class="nav-link button-a">
+                            <a th:href="@{/free/insert.do}" class="nav-link">글작성</a>
+                        </li>
+                    </th:block>
+                    <th:block sec:authorize="hasAuthority('USER')">
+                        <li class="nav-link button-a">
+                            <a th:href="@{/free/insert.do}" class="nav-link">글작성</a>
+                        </li>
+                    </th:block>
                 </div>
             </div>
         </div>

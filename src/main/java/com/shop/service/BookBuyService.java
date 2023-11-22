@@ -16,7 +16,7 @@ public class BookBuyService {
     private BookBuyMapper bookBuyMapper;
 
     public List<BookBuy> getList(Page page) {return bookBuyMapper.getList(page);}
-    public BookBuy getBookSell(@Param("bbno") int bbno) {return bookBuyMapper.getBookSell(bbno);}
+    public BookBuy getBookBuy(@Param("bbno") int bbno) {return bookBuyMapper.getBookBuy(bbno);}
     public int getCount(Page page) {return bookBuyMapper.getCount(page);}
     public void visitCount(Page page) {bookBuyMapper.visitCount(page);}
     public void bookbuyInsert(@Param("bookbuy") BookBuy bookBuy) {bookBuyMapper.bookbuyInsert(bookBuy);}

@@ -31,7 +31,7 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                .antMatchers("/", "/login", "/join", "/idCheck", "/emailCheck", "/joinPro").permitAll()
+                .antMatchers("/", "/layout/**", "/notice/**", "/free/**", "/faq/**", "/contents/**", "/user/**", "/book/**","/login", "/join", "/idCheck", "/emailCheck", "/joinPro").permitAll()
                 .antMatchers("/admin/**").hasRole("admin") // "admin" 역할을 가진 사용자에게만 허용
                 .mvcMatchers("/", "/plugins/**", "/css/**", "/js/**", "/images/**").permitAll()
                 .anyRequest().authenticated()

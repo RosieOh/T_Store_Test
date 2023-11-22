@@ -19,3 +19,4 @@ public class BookBuy {
     private Date regdate;
     private int cnt;
 }
+

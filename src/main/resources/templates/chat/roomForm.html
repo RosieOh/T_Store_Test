@@ -1,30 +1,3 @@
-<!-- <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>Tsherpa</title>
-    <th:block th:replace="layout/head :: head"></th:block>
-</head>
-
-<body class="body-wrapper">
-
-
-<th:block th:replace="layout/header :: header"></th:block>
-
-<form th:action="@{/chat/room}" method="post">
-    <input name="name"><br>
-    <input type="submit" value="방 만들기">
-</form>
-
-<th:block th:replace="layout/footer :: footer"></th:block>
-
-
-
-</body>
-
-</html> -->
-
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
@@ -39,6 +12,16 @@
 <body class="body-wrapper">
 
 <th:block th:replace="layout/header :: header"></th:block>
+
+<section class="page-title" style="background: linear-gradient(to right, #71AEE8, #77E9CE); padding: 100px 0;">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 offset-md-2 text-center">
+                <h3> 거래 장터 </h3>
+            </div>
+        </div>
+    </div>
+</section>
 
 <div class="container mt-5">
     <form th:action="@{/chat/room}" method="post" class="text-center">

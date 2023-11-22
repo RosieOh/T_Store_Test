@@ -13,7 +13,7 @@ import java.util.List;
 @Component
 public interface BookBuyMapper {
     List<BookBuy> getList(Page page);
-    BookBuy getBookSell(@Param("bbno") int bbno);
+    BookBuy getBookBuy(@Param("bbno") int bbno);
     int getCount(Page page);
     void visitCount(Page page);
     void bookbuyInsert(@Param("bookbuy") BookBuy bookBuy);
